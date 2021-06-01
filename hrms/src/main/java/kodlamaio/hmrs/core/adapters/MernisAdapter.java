@@ -1,15 +1,16 @@
 package kodlamaio.hmrs.core.adapters;
 
-import kodlamaio.hmrs.Mernis.MernisManager;
+import org.springframework.stereotype.Service;
 
+import kodlamaio.hmrs.Mernis.MernisManager;
+@Service
 public class MernisAdapter implements MernisService {
-	
-	MernisManager mernisManager = new MernisManager();
 	
 
 	@Override
 	public boolean checkRealPerson() {
-		return this.mernisManager.isRealPerson();
+		MernisManager mernisManager = new MernisManager();
+		return mernisManager.isRealPerson();
 	}
 
 	

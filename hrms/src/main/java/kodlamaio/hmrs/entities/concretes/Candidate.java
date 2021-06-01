@@ -37,7 +37,7 @@ public class Candidate extends User {
 	@Column(name="identity_number")
 	private String identityNumber; // TC Kimlik Numarası
 	
-	@NotBlank(message="Lütfen tarihi doğru bir şekilde giriniz.")
+	
 	@Column(name="birth_date")
 	private LocalDate birthDate;
 	

@@ -35,9 +35,9 @@ public class EmloyerFieldManager implements FieldService<Employer> {
 		//MAİL SPLİTİ OLUŞTURMA
 		String[] splittedMail = employer.getEmail().split("@");
 		// EMAİL KULLANILMIŞ MI
-				if(this.userDao.existsByEmail(employer.getEmail())) {
-					return new ErrorResult("Bu email çoktan kullanılmış !");
-				}
+		if(this.userDao.existsByEmail(employer.getEmail())) {
+			return new ErrorResult("Bu email çoktan kullanılmış !");
+		}
 		//DOĞRU DOMAİNLİ EMAİL Mİ
 		if (!splittedMail[1].equals(employer.getWebAdress())) {
 			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");

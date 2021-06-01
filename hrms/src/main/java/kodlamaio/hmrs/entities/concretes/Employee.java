@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -21,10 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name="employees")
 @EqualsAndHashCode(callSuper = false)
 @PrimaryKeyJoinColumn(name="id")
-public class Employee {
-	@Id	
-	@Column(name="id")
-	private int id;
+public class Employee extends User{
 	
 	@NotBlank(message="lütfen adınızı giriniz.")
 	@Column(name="first_name")

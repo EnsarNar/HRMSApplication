@@ -25,10 +25,11 @@ public class CandidateFieldManager implements FieldService<Candidate> {
 	private ActivationCodeService activationCodeService;
 	private MernisService mernisService;
 	@Autowired
-	public CandidateFieldManager(UserDao userDao, CandidateDao candidateDao,ActivationCodeService activationCodeService) {
+	public CandidateFieldManager(UserDao userDao, CandidateDao candidateDao,ActivationCodeService activationCodeService,MernisService mernisService) {
 		this.candidateDao = candidateDao;
 		this.userDao = userDao;
 		this.activationCodeService =activationCodeService;
+		this.mernisService = mernisService;
 	}
 	
 	@Override

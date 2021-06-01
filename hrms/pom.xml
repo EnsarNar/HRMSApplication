@@ -69,9 +69,13 @@
 			<artifactId>javax.el</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-
-
-
+		
+	<!-- ENGİN HOCA EKLETTİ VALİDASYON İŞLEMLERİ İÇİN -->	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+	
 	</dependencies>
 
 	<build>

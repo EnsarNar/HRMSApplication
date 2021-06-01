@@ -2,7 +2,10 @@ package kodlamaio.hmrs.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,13 +29,13 @@ public class JobPositionsControllers {
 		this.jobPositionsService = jobPositionsService;
 	};
 	
-	@RequestMapping("/getall")
+	@GetMapping("/getall")
 	public DataResult<List<JobPosition>> getAll(){
 		return this.jobPositionsService.getAll();
-	};
+		};
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition) {
+	public Result add(@Valid @RequestBody JobPosition jobPosition) {
 		return this.jobPositionsService.add(jobPosition);
 	}
 	
