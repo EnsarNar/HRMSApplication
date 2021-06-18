@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 @EqualsAndHashCode(callSuper = false)
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 public class Employer extends User{
 	
 	@NotBlank(message="Şirket adı zorunludur.")

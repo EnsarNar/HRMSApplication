@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.JobPositionService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.JobPosition;
+import kodlamaio.hmrs.entities.dtos.JobPositionAddDto;
+import kodlamaio.hmrs.entities.dtos.JobPositionGetDto;
 //BURADA DA FRONTEND KISMI İLE SENKRONİZE ÇALIŞIYORUZ ORADAKİ
 //EKLEME SİLME CRUD OPERASYONLARINI BURADAN KARŞILIYORUZ
 @RestController
 @RequestMapping("/api/jobpositions")
 public class JobPositionsControllers {
-	
 	
 	private JobPositionService jobPositionsService;
 	@Autowired
@@ -30,13 +30,13 @@ public class JobPositionsControllers {
 	};
 	
 	@GetMapping("/getall")
-	public DataResult<List<JobPosition>> getAll(){
+	public DataResult<List<JobPositionGetDto>> getAll(){
 		return this.jobPositionsService.getAll();
 		};
 	
 	@PostMapping("/add")
-	public Result add(@Valid @RequestBody JobPosition jobPosition) {
-		return this.jobPositionsService.add(jobPosition);
+	public Result add(@Valid @RequestBody JobPositionAddDto jobPositionAddDto) {
+		return this.jobPositionsService.add(jobPositionAddDto);
 	}
 	
 }

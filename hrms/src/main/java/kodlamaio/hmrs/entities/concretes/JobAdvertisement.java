@@ -35,9 +35,10 @@ public class JobAdvertisement {
 	@JoinColumn(name="job_positions_id")
 	private JobPosition jobPosition;
 	
-	@ManyToOne()
+	@ManyToOne(targetEntity = Employer.class)
 	@JoinColumn(name="employer_id")
 	private Employer employer;
+	
 	
 	@ManyToOne()
 	@JoinColumn(name="city_id")

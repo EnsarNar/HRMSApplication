@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Table(name="job_positions")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 public class JobPosition {
 
 	@Id
@@ -33,6 +34,7 @@ public class JobPosition {
 	@Column(name="position")
 	private String jobPosition;
 	
+
 	@OneToMany(mappedBy="jobPosition") // JobAdvertisement kısmındaki adını gireceksin (degiskenin adını)
 	private List<JobAdvertisement> jobAdvertisements;
 

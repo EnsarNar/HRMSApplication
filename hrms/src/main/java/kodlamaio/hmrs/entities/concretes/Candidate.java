@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -37,10 +39,7 @@ public class Candidate extends User {
 	@Column(name="identity_number")
 	private String identityNumber; // TC Kimlik Numarası
 	
-	
 	@Column(name="birth_date")
 	private LocalDate birthDate;
-	
-
 	
 }

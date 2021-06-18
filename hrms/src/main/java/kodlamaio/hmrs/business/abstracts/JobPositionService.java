@@ -4,11 +4,12 @@ import java.util.List;
 
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.concretes.JobPosition;
+import kodlamaio.hmrs.entities.dtos.JobPositionAddDto;
+import kodlamaio.hmrs.entities.dtos.JobPositionGetDto;
 
 
 public interface JobPositionService {
-	DataResult<List<JobPosition>> getAll();
-	Result add(JobPosition jobPosition);
+	DataResult<List<JobPositionGetDto>> getAll();
+	Result add(JobPositionAddDto jobPositionAddDto);
 
 }
