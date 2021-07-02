@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobAdvertisementAddDto {
 	
-	@Id
-	private int id;
-	private int jobPositionId;
+	 private int id;
 	private int employerId;
+	private int jobPositionId;
 	private int cityId;
+	private int workTypeId;
+	private int workTimeId;
 	private LocalDate applicationDeadline;
 	private String defination;
 	private String salary;

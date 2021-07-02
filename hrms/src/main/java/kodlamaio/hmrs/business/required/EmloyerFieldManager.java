@@ -47,10 +47,6 @@ public class EmloyerFieldManager implements FieldService<Employer> {
 			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
 		}		
 		this.employerDao.save(employer);
-		//Activation Code Simülasyonu
-		this.activationCodeService.createActivationCode();
-		this.activationCodeService.sendEmail(employer.getEmail());
-
 		return new SuccessResult("Tebrikler ! kayıt işleminiz başarılı.");
 	}
 

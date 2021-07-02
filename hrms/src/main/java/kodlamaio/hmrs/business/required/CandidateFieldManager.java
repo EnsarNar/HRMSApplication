@@ -53,8 +53,8 @@ public class CandidateFieldManager implements FieldService<Candidate> {
 		
 		
 		this.candidateDao.save(candidate);
-		this.activationCodeService.createActivationCode();
-		this.activationCodeService.sendEmail(candidate.getEmail());
+//		this.activationCodeService.createActivationCode();
+//		this.activationCodeService.sendEmail(candidate.getEmail());
 		return new SuccessResult("Tebrikler ! Başarı ile kayıt oldunuz.");
 	}
 

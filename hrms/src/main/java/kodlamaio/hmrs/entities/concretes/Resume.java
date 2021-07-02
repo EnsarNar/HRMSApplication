@@ -1,5 +1,9 @@
 package kodlamaio.hmrs.entities.concretes;
 
+
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +16,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -36,6 +44,15 @@ public class Resume {
 	
 	@Column(name="profile_picture_url")
 	private String profilePictureUrl;
+	
+//	@Column(name="created_at",updatable=false)
+//	@CreationTimestamp
+//	@Temporal(TemporalType.TIMESTAMP)
+//	private Date createdAt;
+	
+	@Column(name="created_at")
+	private LocalDateTime createdAt =LocalDateTime.now();
+	
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne(targetEntity = Candidate.class)

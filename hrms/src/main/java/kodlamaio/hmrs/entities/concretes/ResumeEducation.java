@@ -48,8 +48,8 @@ public class ResumeEducation {
 	@Column(name="is_gradudated")
 	private boolean isGradudated=false;
 	
-	@Column(name="gradudate_description")
-	private String gradudateDescription;
+	// @Column(name="gradudate_description")
+	// private String gradudateDescription;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne()

@@ -13,5 +13,6 @@ public interface ResumeService {
 	DataResult<List<ResumeGetDto>> getAll();
 	Result add(ResumeAddDto resumeDto);
 	Result saveImage(MultipartFile file, int id);
+	Result delete(int id);
 
 }

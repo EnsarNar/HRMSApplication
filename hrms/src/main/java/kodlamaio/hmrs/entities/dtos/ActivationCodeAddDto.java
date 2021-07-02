@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JobPositionGetDto {
- private int id;
- private String jobPosition;
+public class ActivationCodeAddDto {
 
+	private int userId;
+	
 }
+

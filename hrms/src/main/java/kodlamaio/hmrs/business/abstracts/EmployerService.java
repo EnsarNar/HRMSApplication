@@ -10,5 +10,6 @@ import kodlamaio.hmrs.entities.concretes.Employer;
 public interface EmployerService {
 	DataResult<List<Employer>> getAll();
 	Result add(Employer employer);
+	Result confirm(String activationCode);
 
 }

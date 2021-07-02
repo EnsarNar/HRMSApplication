@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class JobPositionGetDto {
- private int id;
- private String jobPosition;
+@NoArgsConstructor
+public class WorkTypeDto {
 
+	private int id;
+	private String workType;
 }

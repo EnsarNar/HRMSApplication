@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,11 @@ public class Employee extends User{
 	@NotBlank(message="Lütfen doğum tarihinizi giriniz.")
 	@Column(name="birth_date")
 	private LocalDate birthDate;
+	
+	@NotBlank(message="Bu alan boş geçilemez.")
+	@Size(min=11,max=11)
+	@Column(name="identity_number")
+	private String identityNumber;
 	
 
 }

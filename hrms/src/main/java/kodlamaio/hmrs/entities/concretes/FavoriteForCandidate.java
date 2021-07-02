@@ -1,8 +1,5 @@
 package kodlamaio.hmrs.entities.concretes;
 
-import java.time.LocalDate;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,32 +8,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
+@Entity
 @AllArgsConstructor
-@Table(name="activation_codes")
-public class ActivationCode {
+@NoArgsConstructor
+@Table(name="favorites_for_candidates")
+public class FavoriteForCandidate {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
-	@Column(name="id")
 	private int id;
 	
-	@Column(name="activation_code")
-	private String activationCode;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "candidate_id")
+	private Candidate candidate;
 	
-	@Column(name="is_confirmed")
-	private boolean isConfirmed;
-	
-	@Column(name="confirm_date")
-	private LocalDate confirmDate;
-	
-	@ManyToOne()
-	@JoinColumn(name="user_id")
-	private User user;
+	@ManyToOne
+	@JoinColumn(name = "job_advertisement_id")
+	private JobAdvertisement jobAdvertisement;
 }

@@ -56,5 +56,11 @@ public class ResumeManager implements ResumeService{
         return new SuccessResult("Kayıt Başarılı");
 		
 	}
+
+	@Override
+	public Result delete(int id) {
+		this.resumeDao.deleteById(id);
+		return new SuccessResult("Silme işlemi başarılı");
+	}
 	
 }
