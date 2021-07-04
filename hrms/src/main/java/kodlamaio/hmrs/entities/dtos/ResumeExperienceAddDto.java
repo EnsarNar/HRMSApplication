@@ -14,9 +14,13 @@ import lombok.NoArgsConstructor;
 public class ResumeExperienceAddDto {
 	
 	private int resumeId;
+	@NotBlank(message="Bu kısım boş geçilemez")
 	private String companyName;
+	@NotBlank(message="Bu kısım boş geçilemez")
 	private String position;
+	@NotBlank(message="Bu kısım boş geçilemez")
 	private LocalDate startDate;
+	@NotBlank(message="Bu kısım boş geçilemez")
 	private LocalDate endDate;
 
 }
