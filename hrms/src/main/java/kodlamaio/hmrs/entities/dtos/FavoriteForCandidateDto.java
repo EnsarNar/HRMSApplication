@@ -15,6 +15,6 @@ public class FavoriteForCandidateDto {
 	@JsonIgnore
 	private int id;	
 	private int candidateId;
-	private int jobPositionAdvertisementId;
+	private int jobAdvertisementId;
 
 }
