@@ -51,4 +51,11 @@ public class ResumeController {
 		return this.resumeService.delete(id);
 	}
 	
+	@PostMapping("/addAndGetId")
+	public DataResult addAndGetId(ResumeAddDto resumeAddDto) {
+		return this.resumeService.addResumeAndGetId(resumeAddDto);
+	};
+	
+	
+	
 }

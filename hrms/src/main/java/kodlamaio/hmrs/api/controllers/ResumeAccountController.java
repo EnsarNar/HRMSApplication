@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import kodlamaio.hmrs.business.abstracts.ResumeAccountService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
@@ -32,6 +33,7 @@ public class ResumeAccountController {
 	public DataResult<List<ResumeAccountDto>> getAll(){
 		return this.resumeAccountService.getAll();
 	}
+	
 	
 
 }

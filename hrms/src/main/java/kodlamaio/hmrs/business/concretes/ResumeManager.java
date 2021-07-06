@@ -62,5 +62,12 @@ public class ResumeManager implements ResumeService{
 		this.resumeDao.deleteById(id);
 		return new SuccessResult("Silme işlemi başarılı");
 	}
+
+	@Override
+	public DataResult addResumeAndGetId(ResumeAddDto resumeAddDto) { 
+		this.resumeDao.save((Resume) this.dtoConverterService.dtoClassConverter(resumeAddDto, Resume.class));
+		int idOfAddedResume = resumeAddDto.getId();
+		return new SuccessDataResult(idOfAddedResume,"Datalar Getirildi");
+	}
 	
 }
