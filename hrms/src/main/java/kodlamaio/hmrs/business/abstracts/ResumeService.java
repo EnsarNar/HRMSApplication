@@ -14,6 +14,6 @@ public interface ResumeService {
 	Result add(ResumeAddDto resumeDto);
 	Result saveImage(MultipartFile file, int id);
 	Result delete(int id);
-	DataResult addResumeAndGetId(ResumeAddDto resumeAddDto);
+	DataResult<List<ResumeGetDto>> getByCandidateId(int id);
 
 }

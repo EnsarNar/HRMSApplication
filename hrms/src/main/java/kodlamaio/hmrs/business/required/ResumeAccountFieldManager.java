@@ -27,8 +27,8 @@ public class ResumeAccountFieldManager implements FieldService<ResumeAccountDto>
 	}
 	@Override
 	public Result add(ResumeAccountDto resumeAccountDto) {
-		if(!resumeAccountDto.getUrl().contains("github") &&
-			!resumeAccountDto.getUrl().contains("linkedin")) {
+		if(!resumeAccountDto.getUrl().contains("github.com/") &&
+			!resumeAccountDto.getUrl().contains("linkedin.com/")) {
 			return new ErrorResult("Lütfen Linkedin veya Github hesabı giriniz.");
 		}
 		

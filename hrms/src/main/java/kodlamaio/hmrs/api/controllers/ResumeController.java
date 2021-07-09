@@ -50,12 +50,10 @@ public class ResumeController {
 	public Result deleteResume(int id) {
 		return this.resumeService.delete(id);
 	}
-	
-	@PostMapping("/addAndGetId")
-	public DataResult addAndGetId(ResumeAddDto resumeAddDto) {
-		return this.resumeService.addResumeAndGetId(resumeAddDto);
+	@GetMapping("/getByCandidateId")
+	public DataResult<List<ResumeGetDto>> getByCandidateId(int id) {
+		return this.resumeService.getByCandidateId(id);
 	};
-	
 	
 	
 }

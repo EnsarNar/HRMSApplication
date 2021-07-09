@@ -64,10 +64,12 @@ public class ResumeManager implements ResumeService{
 	}
 
 	@Override
-	public DataResult addResumeAndGetId(ResumeAddDto resumeAddDto) { 
-		this.resumeDao.save((Resume) this.dtoConverterService.dtoClassConverter(resumeAddDto, Resume.class));
-		int idOfAddedResume = resumeAddDto.getId();
-		return new SuccessDataResult(idOfAddedResume,"Datalar Getirildi");
+	public DataResult<List<ResumeGetDto>> getByCandidateId(int id) {
+		return new SuccessDataResult<List<ResumeGetDto>>
+		(this.dtoConverterService.dtoConverter(resumeDao.getByCandidate_Id(id), ResumeGetDto.class),"Aferin başardın");
+
 	}
+
+	
 	
 }
