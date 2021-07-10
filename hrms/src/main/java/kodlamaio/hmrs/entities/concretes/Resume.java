@@ -45,6 +45,12 @@ public class Resume {
 	@Column(name="profile_picture_url")
 	private String profilePictureUrl;
 	
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
 //	@Column(name="created_at",updatable=false)
 //	@CreationTimestamp
 //	@Temporal(TemporalType.TIMESTAMP)

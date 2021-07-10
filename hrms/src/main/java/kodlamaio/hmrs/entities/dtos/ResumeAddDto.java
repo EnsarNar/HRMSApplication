@@ -14,5 +14,7 @@ public class ResumeAddDto {
 	private String coverLetter;
 	private String profilePictureUrl;
 	private int candidateId;
+	private String firstName;
+	private String lastName;
 	
 }

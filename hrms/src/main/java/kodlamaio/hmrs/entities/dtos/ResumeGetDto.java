@@ -21,6 +21,8 @@ public class ResumeGetDto {
 	private String profilePictureUrl;
 	private String candidateFirstName;
 	private String candidateLastName;
+	private String firstName;
+	private String lastName;
 	private List<ResumeEducation> resumeEducation;
 	private List<ResumeExperience> resumeExperience;
 	private List<ResumeLanguage> resumeLanguage;
