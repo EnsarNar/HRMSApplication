@@ -70,11 +70,11 @@ public class ResumeManager implements ResumeService{
 
 	}
 
-	@Override
-	public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId) {
-		return new SuccessDataResult<List<ResumeGetDto>>
-		(this.dtoConverterService.dtoConverter(resumeDao.findByCandidateIdAndIdGreaterThan(CandidateId), ResumeGetDto.class),"Aferin başardın");
-	}
+	//@Override
+	//public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId) {
+		//return new SuccessDataResult<List<ResumeGetDto>>
+		//(this.dtoConverterService.dtoConverter(resumeDao.findByCandidateIdAndIdGreaterThan(CandidateId), ResumeGetDto.class),"Aferin başardın");
+	//}
 
 	
 	

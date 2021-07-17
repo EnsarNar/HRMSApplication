@@ -55,10 +55,10 @@ public class ResumeController {
 		return this.resumeService.getByCandidateId(id);
 	};
 	
-	@GetMapping("/findByCandidateIdAndIdGreaterThan")
-	public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId){
-		return this.resumeService.findByCandidateIdAndIdGreaterThan(CandidateId);
-	};
+	//@GetMapping("/findByCandidateIdAndIdGreaterThan")
+	//public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId){
+		//return this.resumeService.findByCandidateIdAndIdGreaterThan(CandidateId);
+	//};
 	
 	
 }

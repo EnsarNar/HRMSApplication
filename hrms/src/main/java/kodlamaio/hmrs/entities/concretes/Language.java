@@ -1,4 +1,5 @@
 package kodlamaio.hmrs.entities.concretes;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,28 +16,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
-@Table(name="job_positions")
+@Table(name="languages")
 @NoArgsConstructor
 @AllArgsConstructor
-//@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
-public class JobPosition {
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resumeLanguage"})
+public class Language {
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@NotBlank(message="Bu alanı boş geçemezsin !")
-	@Column(name="position")
-	private String jobPosition;
+	@Column(name="language_name")
+	private String languageName;
 	
+	@OneToMany(mappedBy="language")
+	private List<ResumeLanguage> resumeLanguage;
 	
-	//@OneToMany(mappedBy="jobPosition")
-	// private List<JobAdvertisement> jobAdvertisements;
-	
-
-
-
 }

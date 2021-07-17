@@ -35,8 +35,8 @@ public class ReumeLanguageManager implements ResumeLanguageService {
 	}
 
 	@Override
-	public Result add(ResumeLanguageAddDto resumeLanguageGetDto) {
-		this.resumeLanguageDao.save((ResumeLanguage) this.dtoConverterService.dtoClassConverter(resumeLanguageGetDto, ResumeLanguage.class));
+	public Result add(ResumeLanguageAddDto resumeLanguageAddDto) {
+		this.resumeLanguageDao.save((ResumeLanguage) this.dtoConverterService.dtoClassConverter(resumeLanguageAddDto, ResumeLanguage.class));
 		return new SuccessResult("Tebrikler. İşlem başarılı");	
 		}
 

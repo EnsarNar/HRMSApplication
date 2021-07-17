@@ -16,6 +16,6 @@ public interface ResumeService {
 	Result saveImage(MultipartFile file, int id);
 	Result delete(int id);
 	DataResult<List<ResumeGetDto>> getByCandidateId(int id);
-	DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId);
+	//DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId);
 
 }

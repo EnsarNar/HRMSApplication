@@ -16,8 +16,6 @@ import kodlamaio.hmrs.entities.dtos.CityDto;
 @RequestMapping("/city")
 @CrossOrigin
 public class CityController {
-	
-	
 	private CityService citySrevice;
 	@Autowired
 	public CityController(CityService citySrevice) {

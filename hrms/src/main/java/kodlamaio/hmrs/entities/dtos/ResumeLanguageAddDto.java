@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeLanguageAddDto {
-	
+	private int id;
 	private int resumeId;
 	@NotBlank(message="Bu kısım boş geçilemez")
-	private String languageName;
+	private int languageId;
 	@NotBlank(message="Bu kısım boş geçilemez")
 	private int grade;
 

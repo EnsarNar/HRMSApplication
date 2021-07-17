@@ -20,13 +20,12 @@ import kodlamaio.hmrs.entities.dtos.JobPositionGetDto;
 @Service
 public class JobPositionManager implements JobPositionService{
 	
-	private FieldService<JobPosition> jobPositionFieldService;
+	
 	private DtoConverterService dtoConverterService;
 	private JobPositionDao jobPositionDao;
 	@Autowired
 	public JobPositionManager(FieldService<JobPosition> jobPositionFieldService, DtoConverterService dtoConverterService,JobPositionDao jobPositionDao) {
 		super();
-		this.jobPositionFieldService = jobPositionFieldService;
 		this.jobPositionDao = jobPositionDao;
 		this.dtoConverterService = dtoConverterService;
 	}
