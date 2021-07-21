@@ -8,4 +8,5 @@ import kodlamaio.hmrs.entities.concretes.ResumeLanguage;
 
 public interface ResumeLanguageDao extends JpaRepository<ResumeLanguage, Integer>{
 	List<ResumeLanguage> findById(int id);
+	List<ResumeLanguage> findByResuemId(int id);
 }

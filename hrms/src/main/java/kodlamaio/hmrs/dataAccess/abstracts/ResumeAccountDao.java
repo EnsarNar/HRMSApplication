@@ -8,4 +8,5 @@ import kodlamaio.hmrs.entities.concretes.ResumeAccount;
 
 public interface ResumeAccountDao extends JpaRepository<ResumeAccount,Integer>{
 	List<ResumeAccount> findById(int id);
+	List<ResumeAccount> findByResumeId(int id);
 }

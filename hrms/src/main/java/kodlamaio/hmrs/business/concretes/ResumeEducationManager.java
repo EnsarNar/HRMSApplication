@@ -50,4 +50,10 @@ public class ResumeEducationManager implements ResumeEducationService{
 		return new ErrorDataResult<>("Böyle Bir Resume Yok !");
 	}
 
+	@Override
+	public DataResult<List<ResumeEducationGetDto>> findByResumeId(int id) {
+		return new SuccessDataResult<List<ResumeEducationGetDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeEducationDao.findByResumeId(id),ResumeEducationGetDto.class ),"İşlem Başarılı");
+	}
+
 }

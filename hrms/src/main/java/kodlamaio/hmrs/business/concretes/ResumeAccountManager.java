@@ -47,6 +47,12 @@ public class ResumeAccountManager implements ResumeAccountService {
 		return new ErrorDataResult<> ("Böyle bir veri bulunamadı.");
 	}
 
+	@Override
+	public DataResult<List<ResumeAccountDto>> findByResumeId(int id) {
+		return new SuccessDataResult<List<ResumeAccountDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeAccountDao.findByResumeId(id), ResumeAccountDto.class),"İşlem Başarılı.");
+	}
+
 
 	
 

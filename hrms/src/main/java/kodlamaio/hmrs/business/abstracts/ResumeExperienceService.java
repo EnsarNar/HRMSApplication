@@ -11,5 +11,5 @@ public interface ResumeExperienceService {
 	DataResult<List<ResumeExperienceGetDto>> getAll();
 	Result add(ResumeExperienceAddDto resumeExperienceGetDto);
 	DataResult<List<ResumeExperienceGetDto>> findById(int id);
-
+	DataResult<List<ResumeExperienceGetDto>> findByResumeId(int id);
 }

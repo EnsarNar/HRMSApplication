@@ -40,5 +40,8 @@ public class ResumeEducationController {
 		return this.resumeEducationService.findById(id);
 	};
 	
-
+	@GetMapping("/findByResumeId")
+	public DataResult<List<ResumeEducationGetDto>> findByResumeId(@RequestParam int id) {
+		return this.resumeEducationService.findByResumeId(id);
+	};
 }

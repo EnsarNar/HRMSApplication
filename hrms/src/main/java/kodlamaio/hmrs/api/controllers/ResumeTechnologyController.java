@@ -39,5 +39,9 @@ public class ResumeTechnologyController {
 	public DataResult<List<ResumeTechnologyGetDto>> findById(int id){
 		return this.resumeTechnologyService.findById(id);
 	};
+	@GetMapping("/findByResumeId")
+	public DataResult<List<ResumeTechnologyGetDto>> findByResumeId(int id){
+		return this.resumeTechnologyService.findByResumeId(id);
+	};
 	
 }

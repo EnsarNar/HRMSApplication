@@ -38,5 +38,8 @@ public class ResumeLanguageController {
 		return this.resumeLanguageService.findById(id);
 	};
 	
-	
+	@GetMapping("/findByResumeId")
+	public DataResult<List<ResumeLanguageGetDto>> findByResumeId(int id){
+		return this.resumeLanguageService.findByResumeId(id);
+	};
 }

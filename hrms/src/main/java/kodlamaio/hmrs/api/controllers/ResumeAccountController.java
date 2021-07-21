@@ -37,7 +37,10 @@ public class ResumeAccountController {
 	public DataResult<List<ResumeAccountDto>> findById(int id){
 		return this.resumeAccountService.findById(id);
 	};
-	
+	@GetMapping("/findByResumeId")
+	public DataResult<List<ResumeAccountDto>> findByResumeId(int id){
+		return this.resumeAccountService.findByResumeId(id);
+	};
 	
 
 }

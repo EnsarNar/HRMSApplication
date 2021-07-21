@@ -11,5 +11,5 @@ public interface ResumeEducationService {
 	DataResult<List<ResumeEducationGetDto>> getAll();
 	Result add(ResumeEducationAddDto resumeEducationAddDto);
 	DataResult<List<ResumeEducationGetDto>> findById(int id);
-	
+	DataResult<List<ResumeEducationGetDto>> findByResumeId(int id);
 }

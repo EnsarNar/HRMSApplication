@@ -11,4 +11,5 @@ public interface ResumeLanguageService {
 	DataResult<List<ResumeLanguageGetDto>> getAll();
 	Result add(ResumeLanguageAddDto resumeLanguageAddDto);
 	DataResult<List<ResumeLanguageGetDto>> findById(int id);
+	DataResult<List<ResumeLanguageGetDto>> findByResumeId(int id);
 }

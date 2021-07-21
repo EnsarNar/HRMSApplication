@@ -8,4 +8,5 @@ import kodlamaio.hmrs.entities.concretes.ResumeExperience;
 
 public interface ResumeExperienceDao extends JpaRepository<ResumeExperience, Integer> {
 	List<ResumeExperience> findById(int id);
+	List<ResumeExperience> findByIResumeId(int id);
 }
