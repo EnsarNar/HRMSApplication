@@ -10,5 +10,5 @@ public interface ResumeAccountService {
 	DataResult<List<ResumeAccountDto>> getAll();
 	Result add(ResumeAccountDto resumeAccountDto);
 	DataResult<List<ResumeAccountDto>> findById(int id);
-	DataResult<List<ResumeAccountDto>> findByResumeId(int id);
+	DataResult<List<ResumeAccountDto>> findAllByResumeId(int id);
 }

@@ -51,9 +51,9 @@ public class ResumeTechnologyManager implements ResumeTechnologyService {
 	}
 
 	@Override
-	public DataResult<List<ResumeTechnologyGetDto>> findByResumeId(int id) {
+	public DataResult<List<ResumeTechnologyGetDto>> findAllByResumeId(int id) {
 		return new SuccessDataResult<List<ResumeTechnologyGetDto>>
-		(this.dtoConverterService.dtoConverter(this.resumeTechnologyDao.findByResumeId(id), ResumeTechnologyGetDto.class),"İşlem Başarılı");
+		(this.dtoConverterService.dtoConverter(this.resumeTechnologyDao.findAllByResumeId(id), ResumeTechnologyGetDto.class),"İşlem Başarılı");
 	}
 
 }

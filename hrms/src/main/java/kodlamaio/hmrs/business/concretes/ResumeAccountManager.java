@@ -48,9 +48,9 @@ public class ResumeAccountManager implements ResumeAccountService {
 	}
 
 	@Override
-	public DataResult<List<ResumeAccountDto>> findByResumeId(int id) {
+	public DataResult<List<ResumeAccountDto>> findAllByResumeId(int id) {
 		return new SuccessDataResult<List<ResumeAccountDto>>
-		(this.dtoConverterService.dtoConverter(this.resumeAccountDao.findByResumeId(id), ResumeAccountDto.class),"İşlem Başarılı.");
+		(this.dtoConverterService.dtoConverter(this.resumeAccountDao.findAllByResumeId(id), ResumeAccountDto.class),"İşlem Başarılı.");
 	}
 
 

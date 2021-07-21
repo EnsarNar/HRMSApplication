@@ -51,9 +51,9 @@ public class ResumeEducationManager implements ResumeEducationService{
 	}
 
 	@Override
-	public DataResult<List<ResumeEducationGetDto>> findByResumeId(int id) {
+	public DataResult<List<ResumeEducationGetDto>> findAllByResumeId(int id) {
 		return new SuccessDataResult<List<ResumeEducationGetDto>>
-		(this.dtoConverterService.dtoConverter(this.resumeEducationDao.findByResumeId(id),ResumeEducationGetDto.class ),"İşlem Başarılı");
+		(this.dtoConverterService.dtoConverter(this.resumeEducationDao.findAllByResumeId(id),ResumeEducationGetDto.class ),"İşlem Başarılı");
 	}
 
 }

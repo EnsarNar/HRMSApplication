@@ -50,9 +50,9 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 	}
 
 	@Override
-	public DataResult<List<ResumeExperienceGetDto>> findByResumeId(int id) {
+	public DataResult<List<ResumeExperienceGetDto>> findAllByResumeId(int id) {
 		return new SuccessDataResult<List<ResumeExperienceGetDto>>
-		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findByResumeId(id),ResumeExperienceGetDto.class),"İşlem Başarılı");
+		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findAllByResumeId(id),ResumeExperienceGetDto.class),"İşlem Başarılı");
 	}
 
 	

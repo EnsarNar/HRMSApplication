@@ -40,9 +40,9 @@ public class ResumeExperienceController {
 	public DataResult<List<ResumeExperienceGetDto>> findById(int id){
 		return this.resumeExperienceService.findById(id);
 	};
-	@GetMapping("/findByResumeId")
-	public DataResult<List<ResumeExperienceGetDto>> findByResumeId(int id){
-		return this.resumeExperienceService.findByResumeId(id);
+	@GetMapping("/findAllByResumeId")
+	public DataResult<List<ResumeExperienceGetDto>> findAllByResumeId(int id){
+		return this.resumeExperienceService.findAllByResumeId(id);
 	};
 
 }

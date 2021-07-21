@@ -8,5 +8,5 @@ import kodlamaio.hmrs.entities.concretes.ResumeTechnology;
 
 public interface ResumeTechnologyDao extends JpaRepository<ResumeTechnology, Integer> {
 	List<ResumeTechnology> findById(int id);
-	List<ResumeTechnology> findByResumeId(int id);
+	List<ResumeTechnology> findAllByResumeId(int id);
 }
