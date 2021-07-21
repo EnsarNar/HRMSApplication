@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hmrs.business.abstracts.ResumeExperienceService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -40,8 +41,12 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 
 	@Override
 	public DataResult<List<ResumeExperienceGetDto>> findById(int id) {
-		return new SuccessDataResult<List<ResumeExperienceGetDto>>
+		if(this.resumeExperienceDao.existsById(id)) {
+			return new SuccessDataResult<List<ResumeExperienceGetDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findById(id), ResumeExperienceGetDto.class),"İşlem Başarılı");
+		};
+		return new ErrorDataResult<> ("Böyle bir veri bulunamadı.");
+		
 	}
 
 	

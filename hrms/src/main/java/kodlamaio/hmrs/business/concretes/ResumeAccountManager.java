@@ -9,6 +9,7 @@ import kodlamaio.hmrs.business.abstracts.FieldService;
 import kodlamaio.hmrs.business.abstracts.ResumeAccountService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.dataAccess.abstracts.ResumeAccountDao;
@@ -39,8 +40,11 @@ public class ResumeAccountManager implements ResumeAccountService {
 
 	@Override
 	public DataResult<List<ResumeAccountDto>> findById(int id) {
-		return new SuccessDataResult<List<ResumeAccountDto>>
+		if(this.resumeAccountDao.existsById(id)) {
+			return new SuccessDataResult<List<ResumeAccountDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeAccountDao.findById(id), ResumeAccountDto.class),"İşlem Başarılı");
+		};
+		return new ErrorDataResult<> ("Böyle bir veri bulunamadı.");
 	}
 
 

@@ -15,7 +15,7 @@ import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.entities.dtos.ResumeAccountDto;
 
-@RequestMapping("/api/resumeAccoun")
+@RequestMapping("/api/resumeAccount")
 @RestController
 public class ResumeAccountController {
 	private ResumeAccountService resumeAccountService;
@@ -36,7 +36,7 @@ public class ResumeAccountController {
 	@GetMapping("/findById")
 	public DataResult<List<ResumeAccountDto>> findById(int id){
 		return this.resumeAccountService.findById(id);
-		};
+	};
 	
 	
 

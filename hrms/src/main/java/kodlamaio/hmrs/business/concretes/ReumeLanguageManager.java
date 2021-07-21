@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hmrs.business.abstracts.ResumeLanguageService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -30,6 +31,7 @@ public class ReumeLanguageManager implements ResumeLanguageService {
 
 	@Override
 	public DataResult<List<ResumeLanguageGetDto>> getAll() {
+		
 		return new SuccessDataResult<List<ResumeLanguageGetDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeLanguageDao.findAll(), ResumeLanguageGetDto.class));
 	}
@@ -42,8 +44,12 @@ public class ReumeLanguageManager implements ResumeLanguageService {
 
 	@Override
 	public DataResult<List<ResumeLanguageGetDto>> findById(int id) {
-		return new SuccessDataResult<List<ResumeLanguageGetDto>>
+		if(this.resumeLanguageDao.existsById(id)) {
+			return new SuccessDataResult<List<ResumeLanguageGetDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeLanguageDao.findById(id), ResumeLanguageGetDto.class),"İşlem Başarılı");
+		};
+		return new ErrorDataResult<> ("Böyle bir veri bulunamadı.");
+		
 	}
 
 }

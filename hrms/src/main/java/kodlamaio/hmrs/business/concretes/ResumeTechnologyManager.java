@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hmrs.business.abstracts.ResumeTechnologyService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -41,8 +42,12 @@ public class ResumeTechnologyManager implements ResumeTechnologyService {
 
 	@Override
 	public DataResult<List<ResumeTechnologyGetDto>> findById(int id) {
-		return new SuccessDataResult<List<ResumeTechnologyGetDto>>
+		if(this.resumeTechnologyDao.existsById(id)) {
+			return new SuccessDataResult<List<ResumeTechnologyGetDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeTechnologyDao.findById(id), ResumeTechnologyGetDto.class),"İşlem Başarılı");
+		};
+		return new ErrorDataResult<> ("Böyle bir veri bulunamadı");
+		
 	}
 
 }

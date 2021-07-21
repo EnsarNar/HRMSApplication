@@ -70,5 +70,7 @@ public class Resume {
 	private List<ResumeLanguage> resumeLanguage;
 	@OneToMany(mappedBy = "resume", cascade = CascadeType.ALL )
 	private List<ResumeTechnology> resumeTechnology;
+	@OneToMany(mappedBy="resume",cascade = CascadeType.ALL)
+	private List<ResumeAccount> resumeAccount;
 
 }
