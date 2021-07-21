@@ -38,6 +38,12 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 		return new SuccessResult("Tebrikler. İşlem başarılı.");
 	}
 
+	@Override
+	public DataResult<List<ResumeExperienceGetDto>> findById(int id) {
+		return new SuccessDataResult<List<ResumeExperienceGetDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findById(id), ResumeExperienceGetDto.class),"İşlem Başarılı");
+	}
+
 	
 
 }

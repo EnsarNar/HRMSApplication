@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.ResumeTechnologyService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
+import kodlamaio.hmrs.entities.dtos.ResumeLanguageGetDto;
 import kodlamaio.hmrs.entities.dtos.ResumeTechnologyAddDto;
 import kodlamaio.hmrs.entities.dtos.ResumeTechnologyGetDto;
 
@@ -34,5 +35,9 @@ public class ResumeTechnologyController {
 	public Result add(ResumeTechnologyAddDto resumeTechnologyAddDto) {
 		return this.resumeTechnologyService.add(resumeTechnologyAddDto);
 	}
+	@GetMapping("/findById")
+	public DataResult<List<ResumeTechnologyGetDto>> findById(int id){
+		return this.resumeTechnologyService.findById(id);
+	};
 	
 }

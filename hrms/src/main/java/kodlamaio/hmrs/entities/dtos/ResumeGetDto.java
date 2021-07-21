@@ -1,6 +1,7 @@
 package kodlamaio.hmrs.entities.dtos;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import kodlamaio.hmrs.entities.concretes.ResumeEducation;
@@ -21,8 +22,7 @@ public class ResumeGetDto {
 	private String profilePictureUrl;
 	private String candidateFirstName;
 	private String candidateLastName;
-	private String firstName;
-	private String lastName;
+	private LocalDateTime createdAt;
 	private List<ResumeEducation> resumeEducation;
 	private List<ResumeExperience> resumeExperience;
 	private List<ResumeLanguage> resumeLanguage;

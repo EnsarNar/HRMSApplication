@@ -10,5 +10,6 @@ import kodlamaio.hmrs.entities.dtos.ResumeEducationGetDto;
 public interface ResumeEducationService {
 	DataResult<List<ResumeEducationGetDto>> getAll();
 	Result add(ResumeEducationAddDto resumeEducationAddDto);
+	DataResult<List<ResumeEducationGetDto>> findById(int id);
 	
 }

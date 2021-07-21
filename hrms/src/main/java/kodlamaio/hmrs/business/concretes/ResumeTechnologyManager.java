@@ -39,4 +39,10 @@ public class ResumeTechnologyManager implements ResumeTechnologyService {
 		return new SuccessResult("Tebrikler. İşlem başarılı.");
 	}
 
+	@Override
+	public DataResult<List<ResumeTechnologyGetDto>> findById(int id) {
+		return new SuccessDataResult<List<ResumeTechnologyGetDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeTechnologyDao.findById(id), ResumeTechnologyGetDto.class),"İşlem Başarılı");
+	}
+
 }

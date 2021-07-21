@@ -9,5 +9,6 @@ import kodlamaio.hmrs.entities.concretes.Resume;
 public interface ResumeDao extends JpaRepository<Resume, Integer> {
 	
 	List<Resume> getByCandidate_Id(int id);
+	List<Resume> findById(int id);
 	//List<Resume> findByCandidateIdAndIdGreaterThan(int CandidateId);
 }

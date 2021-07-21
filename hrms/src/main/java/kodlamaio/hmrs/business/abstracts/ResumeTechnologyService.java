@@ -10,4 +10,5 @@ import kodlamaio.hmrs.entities.dtos.ResumeTechnologyGetDto;
 public interface ResumeTechnologyService {
 	DataResult<List<ResumeTechnologyGetDto>> getAll();
 	Result add(ResumeTechnologyAddDto resumeTechnologyAddDto);
+	DataResult<List<ResumeTechnologyGetDto>> findById(int id);
 }

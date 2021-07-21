@@ -54,6 +54,10 @@ public class ResumeController {
 	public DataResult<List<ResumeGetDto>> getByCandidateId(int id) {
 		return this.resumeService.getByCandidateId(id);
 	};
+	@GetMapping("/findById")
+	public DataResult<List<ResumeGetDto>> findById(@RequestParam int id){
+		return this.resumeService.findById(id);
+	};
 	
 	//@GetMapping("/findByCandidateIdAndIdGreaterThan")
 	//public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId){

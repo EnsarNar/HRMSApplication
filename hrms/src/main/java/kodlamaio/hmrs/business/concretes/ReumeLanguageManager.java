@@ -40,4 +40,10 @@ public class ReumeLanguageManager implements ResumeLanguageService {
 		return new SuccessResult("Tebrikler. İşlem başarılı");	
 		}
 
+	@Override
+	public DataResult<List<ResumeLanguageGetDto>> findById(int id) {
+		return new SuccessDataResult<List<ResumeLanguageGetDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeLanguageDao.findById(id), ResumeLanguageGetDto.class),"İşlem Başarılı");
+	}
+
 }

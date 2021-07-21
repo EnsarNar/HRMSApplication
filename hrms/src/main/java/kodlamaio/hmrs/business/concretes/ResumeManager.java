@@ -11,6 +11,7 @@ import kodlamaio.hmrs.business.abstracts.ResumeService;
 import kodlamaio.hmrs.core.Cloudinary.CloudinaryService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorDataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -38,11 +39,16 @@ public class ResumeManager implements ResumeService{
 		(this.dtoConverterService.dtoConverter(resumeDao.findAll(), ResumeGetDto.class),"Aferin başardın");
 	}				//resumedao.findall bana bir liste döndürecek. Veriler buradan geliyor. Bu bir kaynak.
 
+	
+
 	@Override
 	public Result add(ResumeAddDto resumeDto) {
 		this.resumeDao.save((Resume) this.dtoConverterService.dtoClassConverter(resumeDto, Resume.class));
 		return new SuccessResult("Kayıt basarili");
 	}
+	
+	
+
 
 	@Override // User'ın idsi olacak su anda resumenin idsi.
 	public Result saveImage(MultipartFile file, int id) {
@@ -69,6 +75,21 @@ public class ResumeManager implements ResumeService{
 		(this.dtoConverterService.dtoConverter(resumeDao.getByCandidate_Id(id), ResumeGetDto.class),"Aferin başardın");
 
 	}
+
+	@Override
+	public DataResult<List<ResumeGetDto>> findById(int id) {
+		if(this.resumeDao.existsById(id)) {
+			return new SuccessDataResult<List<ResumeGetDto>>
+		(this.dtoConverterService.dtoConverter(resumeDao.findById(id), ResumeGetDto.class),"Aferin başardın");
+		}
+		
+		return new ErrorDataResult<>("Böyle Bir Resume Yok !");
+		
+	}
+
+
+
+	
 
 	//@Override
 	//public DataResult<List<ResumeGetDto>> findByCandidateIdAndIdGreaterThan(int CandidateId) {

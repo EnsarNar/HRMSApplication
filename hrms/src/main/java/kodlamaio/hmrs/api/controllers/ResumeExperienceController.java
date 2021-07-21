@@ -34,5 +34,10 @@ public class ResumeExperienceController {
 	public Result add(@RequestBody ResumeExperienceAddDto resumeExperienceAddDto) {
 		return this.resumeExperienceService.add(resumeExperienceAddDto);
 	}
+	@GetMapping("/findById")
+	public DataResult<List<ResumeExperienceGetDto>> findById(int id){
+		return this.resumeExperienceService.findById(id);
+	};
+	
 
 }

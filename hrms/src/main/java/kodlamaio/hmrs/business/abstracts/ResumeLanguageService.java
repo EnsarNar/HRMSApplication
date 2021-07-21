@@ -10,4 +10,5 @@ import kodlamaio.hmrs.entities.dtos.ResumeLanguageGetDto;
 public interface ResumeLanguageService {
 	DataResult<List<ResumeLanguageGetDto>> getAll();
 	Result add(ResumeLanguageAddDto resumeLanguageAddDto);
+	DataResult<List<ResumeLanguageGetDto>> findById(int id);
 }
