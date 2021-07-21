@@ -3,6 +3,7 @@ package kodlamaio.hmrs.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import kodlamaio.hmrs.entities.dtos.ResumeEducationGetDto;
 
 @RestController
 @RequestMapping("/api/resumeEducation")
+@CrossOrigin
 public class ResumeEducationController {
 	
 	private ResumeEducationService resumeEducationService;

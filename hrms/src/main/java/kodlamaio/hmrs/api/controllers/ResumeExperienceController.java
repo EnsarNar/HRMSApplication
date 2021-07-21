@@ -3,6 +3,7 @@ package kodlamaio.hmrs.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import kodlamaio.hmrs.entities.dtos.ResumeExperienceGetDto;
 
 @RestController
 @RequestMapping("/api/resumeExperience")
+@CrossOrigin
 public class ResumeExperienceController {
 	
 	private ResumeExperienceService resumeExperienceService;

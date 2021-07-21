@@ -52,7 +52,7 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 	@Override
 	public DataResult<List<ResumeExperienceGetDto>> findByResumeId(int id) {
 		return new SuccessDataResult<List<ResumeExperienceGetDto>>
-		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findByIResumeId(id),ResumeExperienceGetDto.class),"İşlem Başarılı");
+		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findByResumeId(id),ResumeExperienceGetDto.class),"İşlem Başarılı");
 	}
 
 	
