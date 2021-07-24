@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class ResumeEducationGetDto {
 	
 	private int resumeId;
+	private int id;
 	private String schoolName;
 	private LocalDate startingDate;
 	private LocalDate graduateDate;

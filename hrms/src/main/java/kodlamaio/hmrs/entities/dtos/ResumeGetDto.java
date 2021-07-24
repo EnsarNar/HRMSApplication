@@ -4,6 +4,7 @@ package kodlamaio.hmrs.entities.dtos;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import kodlamaio.hmrs.entities.concretes.ResumeAccount;
 import kodlamaio.hmrs.entities.concretes.ResumeEducation;
 import kodlamaio.hmrs.entities.concretes.ResumeExperience;
 import kodlamaio.hmrs.entities.concretes.ResumeLanguage;
@@ -27,5 +28,6 @@ public class ResumeGetDto {
 	private List<ResumeExperience> resumeExperience;
 	private List<ResumeLanguage> resumeLanguage;
 	private List<ResumeTechnology> resumeTechnology;
-	
+	private List<ResumeAccount> resumeAccount;
+	 
 }

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.ResumeAccountService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.dtos.ResumeAccountDto;
+import kodlamaio.hmrs.entities.dtos.ResumeAccountAddDto;
+import kodlamaio.hmrs.entities.dtos.ResumeAccountGetDto;
 
 @RequestMapping("/api/resumeAccount")
 @RestController
@@ -27,19 +28,19 @@ public class ResumeAccountController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody ResumeAccountDto resumeAccountDto) {
+	public Result add(@RequestBody ResumeAccountAddDto resumeAccountDto) {
 		return this.resumeAccountService.add(resumeAccountDto);
 	}
 	@GetMapping("/getAll")
-	public DataResult<List<ResumeAccountDto>> getAll(){
+	public DataResult<List<ResumeAccountGetDto>> getAll(){
 		return this.resumeAccountService.getAll();
 	}
 	@GetMapping("/findById")
-	public DataResult<List<ResumeAccountDto>> findById(int id){
+	public DataResult<List<ResumeAccountGetDto>> findById(int id){
 		return this.resumeAccountService.findById(id);
 	};
 	@GetMapping("/findAllByResumeId")
-	public DataResult<List<ResumeAccountDto>> findByResumeId(int id){
+	public DataResult<List<ResumeAccountGetDto>> findByResumeId(int id){
 		return this.resumeAccountService.findAllByResumeId(id);
 	};
 	

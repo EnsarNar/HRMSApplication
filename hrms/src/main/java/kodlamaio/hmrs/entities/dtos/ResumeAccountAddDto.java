@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResumeTechnologyGetDto {
-	
+public class ResumeAccountAddDto {
 	private int resumeId;
-	private int id;
-	private String programmingLanguageName;
-	private int grade;
-	
+	private String linkedin;
+	private String github;
 }
+

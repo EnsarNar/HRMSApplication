@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,17 +20,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="resume_accounts")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","resume"})
 public class ResumeAccount {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="url")
-	private String url;
+	@Column(name="github")
+	private String github;
 	
-	@Column(name="description")
-	private String description;
+	@Column(name="linkedin")
+	private String linkedin;
 	
 	@ManyToOne()
 	@JoinColumn(name="resume_id")
