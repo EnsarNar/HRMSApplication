@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResumeExperienceAddDto {
-	
+	private int id;
 	private int resumeId;
 	@NotBlank(message="Bu kısım boş geçilemez")
 	private String companyName;

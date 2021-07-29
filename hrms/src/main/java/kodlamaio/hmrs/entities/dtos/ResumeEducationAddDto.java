@@ -12,13 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ResumeEducationAddDto {
 
-	//private int id; education idsi
+	private int id; //education idsi
 	private int resumeId;
-	@NotBlank(message="Bu kısım boş geçilemez")
 	private String schoolName;
-	@NotBlank(message="Bu kısım boş geçilemez")
 	private LocalDate startingDate;
-	@NotBlank(message="Bu kısım boş geçilemez")
 	private LocalDate graduateDate;
 	private String departmentName;
 	

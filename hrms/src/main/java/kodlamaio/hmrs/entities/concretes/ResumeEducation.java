@@ -31,12 +31,12 @@ public class ResumeEducation {
 	@Column(name="id")
 	private int id;
 	
-
 	@Column(name="school_name")
 	private String schoolName;
-	
+
 
 	@Column(name="start_date")
+	@NotBlank(message="Bu alan boş geçilemez")
 	private LocalDate startingDate;
 	
 	@Column(name="graduate_date")

@@ -9,7 +9,8 @@ import kodlamaio.hmrs.entities.dtos.ResumeExperienceGetDto;
 
 public interface ResumeExperienceService {
 	DataResult<List<ResumeExperienceGetDto>> getAll();
-	Result add(ResumeExperienceAddDto resumeExperienceGetDto);
+	Result add(ResumeExperienceAddDto resumeExperienceDto);
+	Result update(ResumeExperienceAddDto resumeExperienceDto);
 	DataResult<List<ResumeExperienceGetDto>> findById(int id);
 	DataResult<List<ResumeExperienceGetDto>> findAllByResumeId(int id);
 }

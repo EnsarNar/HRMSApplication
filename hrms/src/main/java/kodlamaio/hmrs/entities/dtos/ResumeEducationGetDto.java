@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResumeEducationGetDto {
-	
-	private int resumeId;
 	private int id;
+	private int resumeId;
 	private String schoolName;
 	private LocalDate startingDate;
 	private LocalDate graduateDate;

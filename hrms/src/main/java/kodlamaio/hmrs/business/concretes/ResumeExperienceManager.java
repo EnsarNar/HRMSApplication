@@ -34,8 +34,8 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 	}
 	
 	@Override
-	public Result add(ResumeExperienceAddDto resumeExperienceGetDto) {
-		this.resumeExperienceDao.save((ResumeExperience) this.dtoConverterService.dtoClassConverter(resumeExperienceGetDto, ResumeExperience.class));
+	public Result add(ResumeExperienceAddDto resumeExperienceAddDto) {
+		this.resumeExperienceDao.save((ResumeExperience) this.dtoConverterService.dtoClassConverter(resumeExperienceAddDto, ResumeExperience.class));
 		return new SuccessResult("Tebrikler. İşlem başarılı.");
 	}
 
@@ -54,6 +54,13 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 		return new SuccessDataResult<List<ResumeExperienceGetDto>>
 		(this.dtoConverterService.dtoConverter(this.resumeExperienceDao.findAllByResumeId(id),ResumeExperienceGetDto.class),"İşlem Başarılı");
 	}
+
+	@Override
+	public Result update(ResumeExperienceAddDto resumeExperienceDto) {
+		return null;
+		
+	}
+	
 
 	
 

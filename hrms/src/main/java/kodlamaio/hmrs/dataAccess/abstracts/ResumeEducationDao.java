@@ -12,6 +12,7 @@ import kodlamaio.hmrs.entities.concretes.ResumeEducation;
 
 public interface ResumeEducationDao extends JpaRepository <ResumeEducation, Integer> {
 	List<ResumeEducation> findById(int id);
-	List<ResumeEducation> findAllByResumeId(int id);
+	List<ResumeEducation> getAllByResumeIdOrderByIdAsc(int id);
+	ResumeEducation getById(int id);
 	// DataResult<List<ResumeEducationGetDto>> findAllOrderedByGraduateDateEsc();
 }
