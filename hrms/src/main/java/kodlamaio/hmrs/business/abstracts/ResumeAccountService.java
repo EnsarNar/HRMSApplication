@@ -10,6 +10,7 @@ import kodlamaio.hmrs.entities.dtos.ResumeAccountGetDto;
 public interface ResumeAccountService {
 	DataResult<List<ResumeAccountGetDto>> getAll();
 	Result add(ResumeAccountAddDto resumeAccountDto);
+	Result update(ResumeAccountAddDto resumeAccountDto);
 	DataResult<List<ResumeAccountGetDto>> findById(int id);
 	DataResult<List<ResumeAccountGetDto>> findAllByResumeId(int id);
 }

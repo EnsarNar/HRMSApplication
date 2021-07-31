@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +44,9 @@ public class ResumeLanguageController {
 	@GetMapping("/findAllByResumeId")
 	public DataResult<List<ResumeLanguageGetDto>> findAllByResumeId(int id){
 		return this.resumeLanguageService.findAllByResumeId(id);
+	};
+	@PutMapping("/add")
+	public Result update(ResumeLanguageAddDto resumeLanguageAddDto) {
+		return this.resumeLanguageService.update(resumeLanguageAddDto);
 	};
 }

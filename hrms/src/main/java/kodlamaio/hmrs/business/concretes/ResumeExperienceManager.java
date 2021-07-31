@@ -13,6 +13,7 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.ResumeExperienceDao;
+import kodlamaio.hmrs.entities.concretes.ResumeEducation;
 import kodlamaio.hmrs.entities.concretes.ResumeExperience;
 import kodlamaio.hmrs.entities.dtos.ResumeExperienceAddDto;
 import kodlamaio.hmrs.entities.dtos.ResumeExperienceGetDto;
@@ -57,7 +58,9 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 
 	@Override
 	public Result update(ResumeExperienceAddDto resumeExperienceDto) {
-		return null;
+		ResumeExperience experience =  (ResumeExperience)this.dtoConverterService.dtoClassConverter(resumeExperienceDto, ResumeEducation.class);
+		 this.resumeExperienceDao.save(experience);
+		return new SuccessResult("İşlem Başarılı");
 		
 	}
 	

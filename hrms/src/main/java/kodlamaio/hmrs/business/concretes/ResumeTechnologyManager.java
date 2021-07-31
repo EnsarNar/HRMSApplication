@@ -56,4 +56,11 @@ public class ResumeTechnologyManager implements ResumeTechnologyService {
 		(this.dtoConverterService.dtoConverter(this.resumeTechnologyDao.findAllByResumeId(id), ResumeTechnologyGetDto.class),"İşlem Başarılı");
 	}
 
+	@Override
+	public Result update(ResumeTechnologyAddDto resumeTechnologyAddDto) {
+		ResumeTechnology resumeTechnology = (ResumeTechnology) this.dtoConverterService.dtoClassConverter(resumeTechnologyAddDto, ResumeTechnology.class);
+		this.resumeTechnologyDao.save(resumeTechnology);
+		return new SuccessResult("İşlem Başarılı");
+	}
+
 }

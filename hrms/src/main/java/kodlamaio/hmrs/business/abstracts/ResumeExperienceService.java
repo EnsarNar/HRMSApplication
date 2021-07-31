@@ -4,6 +4,7 @@ import java.util.List;
 
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
+import kodlamaio.hmrs.entities.dtos.ResumeEducationAddDto;
 import kodlamaio.hmrs.entities.dtos.ResumeExperienceAddDto;
 import kodlamaio.hmrs.entities.dtos.ResumeExperienceGetDto;
 

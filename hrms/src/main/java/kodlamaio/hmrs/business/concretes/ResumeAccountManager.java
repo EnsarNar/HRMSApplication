@@ -62,6 +62,17 @@ public class ResumeAccountManager implements ResumeAccountService {
 		(this.dtoConverterService.dtoConverter(this.resumeAccountDao.findAllByResumeId(id), ResumeAccountGetDto.class),"İşlem Başarılı.");
 	}
 
+	@Override
+	public Result update(ResumeAccountAddDto resumeAccountDto) {
+		if(!resumeAccountDto.getGithub().contains("github.com/") &&
+				!resumeAccountDto.getLinkedin().contains("linkedin.com/")) {
+				return new ErrorResult("Lütfen Linkedin veya Github hesabı giriniz.");
+			}
+			ResumeAccount resumeAccount = (ResumeAccount) this.dtoConverterService.dtoClassConverter(resumeAccountDto, ResumeAccount.class);
+			this.resumeAccountDao.save(resumeAccount);
+			return new SuccessResult("İşlem Başarılı");
+	}
+
 
 //	@Override
 //	public Result add(ResumeAccount resumeAccount) {

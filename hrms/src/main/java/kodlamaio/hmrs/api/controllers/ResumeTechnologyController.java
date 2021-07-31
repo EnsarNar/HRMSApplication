@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hmrs.business.abstracts.ResumeTechnologyService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
-import kodlamaio.hmrs.entities.dtos.ResumeLanguageGetDto;
 import kodlamaio.hmrs.entities.dtos.ResumeTechnologyAddDto;
 import kodlamaio.hmrs.entities.dtos.ResumeTechnologyGetDto;
 
@@ -45,5 +45,8 @@ public class ResumeTechnologyController {
 	public DataResult<List<ResumeTechnologyGetDto>> findAllByResumeId(int id){
 		return this.resumeTechnologyService.findAllByResumeId(id);
 	};
-	
+	@PutMapping("/update")
+	public Result update(ResumeTechnologyAddDto resumeTechnologyAddDto) {
+		return this.resumeTechnologyService.update(resumeTechnologyAddDto);
+	};
 }

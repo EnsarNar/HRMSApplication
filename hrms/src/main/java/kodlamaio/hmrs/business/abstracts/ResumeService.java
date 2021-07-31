@@ -13,6 +13,7 @@ public interface ResumeService {
 	DataResult<List<ResumeGetDto>> getAll();
 	Result add(ResumeAddDto resumeDto);
 	Result saveImage(MultipartFile file, int id);
+	Result update(ResumeAddDto resumeDto);
 	Result delete(int id);
 	DataResult<List<ResumeGetDto>> getByCandidateId(int id);
 	DataResult<List<ResumeGetDto>> findById(int id);
