@@ -11,9 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class ResumeTechnologyAddDto {
+	private int id;
 	private int resumeId;
 	@NotBlank(message="Bu kısım boş geçilemez")
 	private String programmingLanguageName;
 	@NotBlank(message="Bu kısım boş geçilemez")
 	private int grade;
+	
 }

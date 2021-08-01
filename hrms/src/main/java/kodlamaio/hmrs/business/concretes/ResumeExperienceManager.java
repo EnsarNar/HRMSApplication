@@ -58,7 +58,7 @@ public class ResumeExperienceManager implements ResumeExperienceService {
 
 	@Override
 	public Result update(ResumeExperienceAddDto resumeExperienceDto) {
-		ResumeExperience experience =  (ResumeExperience)this.dtoConverterService.dtoClassConverter(resumeExperienceDto, ResumeEducation.class);
+		ResumeExperience experience =  (ResumeExperience)this.dtoConverterService.dtoClassConverter(resumeExperienceDto, ResumeExperience.class);
 		 this.resumeExperienceDao.save(experience);
 		return new SuccessResult("İşlem Başarılı");
 		

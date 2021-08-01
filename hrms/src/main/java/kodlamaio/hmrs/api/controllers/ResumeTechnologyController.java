@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +35,7 @@ public class ResumeTechnologyController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(ResumeTechnologyAddDto resumeTechnologyAddDto) {
+	public Result add(@RequestBody ResumeTechnologyAddDto resumeTechnologyAddDto) {
 		return this.resumeTechnologyService.add(resumeTechnologyAddDto);
 	}
 	@GetMapping("/findById")
@@ -46,7 +47,7 @@ public class ResumeTechnologyController {
 		return this.resumeTechnologyService.findAllByResumeId(id);
 	};
 	@PutMapping("/update")
-	public Result update(ResumeTechnologyAddDto resumeTechnologyAddDto) {
+	public Result update(@RequestBody ResumeTechnologyAddDto resumeTechnologyAddDto) {
 		return this.resumeTechnologyService.update(resumeTechnologyAddDto);
 	};
 }

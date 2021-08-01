@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,7 +34,7 @@ public class ResumeLanguageController {
 		return this.resumeLanguageService.getAll();
 	};
 	@PostMapping("/add")
-	public Result add(ResumeLanguageAddDto resumeLanguageAddDto) {
+	public Result add(@RequestBody ResumeLanguageAddDto resumeLanguageAddDto) {
 		return this.resumeLanguageService.add(resumeLanguageAddDto);
 	}
 	@GetMapping("/findById")
@@ -46,7 +47,7 @@ public class ResumeLanguageController {
 		return this.resumeLanguageService.findAllByResumeId(id);
 	};
 	@PutMapping("/add")
-	public Result update(ResumeLanguageAddDto resumeLanguageAddDto) {
+	public Result update(@RequestBody ResumeLanguageAddDto resumeLanguageAddDto) {
 		return this.resumeLanguageService.update(resumeLanguageAddDto);
 	};
 }
