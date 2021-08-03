@@ -38,6 +38,11 @@ public class LanguageManager implements LanguageService{
 		return new SuccessResult("İşlem Başarılı");
 		
 	}
+	@Override
+	public DataResult<List<LanguageGetDto>> getById(int id) {
+		return new SuccessDataResult<List<LanguageGetDto>>
+		(this.dtoConverterService.dtoConverter(this.languageDao.getById(id), LanguageGetDto.class),"İşlem Başarılı");
+	}
 
 	
 }

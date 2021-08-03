@@ -37,6 +37,9 @@ public class LanguagesController {
 	public Result add(@RequestBody LanguageAddDto languageAddDto) {
 		return this.languageService.add(languageAddDto);
 	};
-	
+	@GetMapping("/getById")
+	public DataResult<List<LanguageGetDto>> getById(int id){
+		return this.languageService.getById(id);
+	};
 	
 }

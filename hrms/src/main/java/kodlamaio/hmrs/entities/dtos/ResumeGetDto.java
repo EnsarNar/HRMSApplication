@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ResumeGetDto {	
 	private int id; 
-	private String coverLetter;
 	private String profilePictureUrl;
 	private String candidateFirstName;
 	private String candidateLastName;

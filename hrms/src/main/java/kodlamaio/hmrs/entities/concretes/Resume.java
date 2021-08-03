@@ -3,7 +3,6 @@ package kodlamaio.hmrs.entities.concretes;
 
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,13 +14,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -40,8 +36,6 @@ public class Resume {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="cover_letter")
-	private String coverLetter;
 	
 	@Column(name="profile_picture_url")
 	private String profilePictureUrl;
@@ -72,5 +66,7 @@ public class Resume {
 	private List<ResumeTechnology> resumeTechnology;
 	@OneToMany(mappedBy="resume",cascade = CascadeType.ALL)
 	private List<ResumeAccount> resumeAccount;
+	@OneToOne(mappedBy = "resume")
+	private ResumeCoverLetter resumeCoverLetter;
 
 }
