@@ -66,7 +66,9 @@ public class Resume {
 	private List<ResumeTechnology> resumeTechnology;
 	@OneToMany(mappedBy="resume",cascade = CascadeType.ALL)
 	private List<ResumeAccount> resumeAccount;
+
 	@OneToOne(mappedBy = "resume")
 	private ResumeCoverLetter resumeCoverLetter;
+	
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.hmrs.business.abstracts.ResumeCoverLetterService;
 import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -34,7 +35,24 @@ public class ResumeCoverLetterManager implements ResumeCoverLetterService {
 	}
 	@Override
 	public Result add(ResumeCoverLetterAddDto resumeCoverLetterAddDto) {
-		this.resumeCoverLetterDao.save((ResumeCoverLetter) this.dtoConverterService.dtoClassConverter(resumeCoverLetterAddDto, ResumeCoverLetter.class));
+		if(!this.resumeCoverLetterDao.existsById(resumeCoverLetterAddDto.getResumeId())) {
+			this.resumeCoverLetterDao.save((ResumeCoverLetter) this.dtoConverterService.dtoClassConverter(resumeCoverLetterAddDto, ResumeCoverLetter.class));
 		return new SuccessResult("İşlem Başarılı");
+		}
+		return new ErrorResult("İşlem Başarısız");
+		
+		
+	}
+	@Override
+	public Result update(ResumeCoverLetterAddDto resumeCoverLetterAddDto) {
+		ResumeCoverLetter coverLetter = (ResumeCoverLetter)this.dtoConverterService.dtoClassConverter(resumeCoverLetterAddDto, ResumeCoverLetter.class);
+		this.resumeCoverLetterDao.save(coverLetter);
+		return new SuccessResult("İşlem Başarılı");
+		
+	}
+	@Override
+	public DataResult<List<ResumeCoverLetterGetDto>> getAllByResumeId(int id) {
+		return new SuccessDataResult<List<ResumeCoverLetterGetDto>>
+		(this.dtoConverterService.dtoConverter(this.resumeCoverLetterDao.getAllByResumeId(id),ResumeCoverLetterGetDto.class) ,"İşlem Başarılı");
 	}
 }

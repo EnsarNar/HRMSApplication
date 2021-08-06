@@ -13,6 +13,7 @@ import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.LanguageDao;
 import kodlamaio.hmrs.entities.concretes.Language;
+import kodlamaio.hmrs.entities.concretes.ResumeLanguage;
 import kodlamaio.hmrs.entities.dtos.LanguageAddDto;
 import kodlamaio.hmrs.entities.dtos.LanguageGetDto;
 @Service
@@ -43,6 +44,7 @@ public class LanguageManager implements LanguageService{
 		return new SuccessDataResult<List<LanguageGetDto>>
 		(this.dtoConverterService.dtoConverter(this.languageDao.getById(id), LanguageGetDto.class),"İşlem Başarılı");
 	}
+	
 
 	
 }

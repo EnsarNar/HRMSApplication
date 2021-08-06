@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeAccountAddDto {
+	private int id;
 	private int resumeId;
 	private String linkedin;
 	private String github;

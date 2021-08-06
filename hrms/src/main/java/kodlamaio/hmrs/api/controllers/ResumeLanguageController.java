@@ -46,7 +46,7 @@ public class ResumeLanguageController {
 	public DataResult<List<ResumeLanguageGetDto>> findAllByResumeId(int id){
 		return this.resumeLanguageService.findAllByResumeId(id);
 	};
-	@PutMapping("/add")
+	@PutMapping("/update")
 	public Result update(@RequestBody ResumeLanguageAddDto resumeLanguageAddDto) {
 		return this.resumeLanguageService.update(resumeLanguageAddDto);
 	};
