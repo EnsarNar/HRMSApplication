@@ -7,40 +7,67 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.business.abstracts.EmployerService;
-import kodlamaio.hmrs.business.abstracts.FieldService;
+import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
+import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.ActivationCodeDao;
 import kodlamaio.hmrs.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hmrs.dataAccess.abstracts.UserDao;
 import kodlamaio.hmrs.entities.concretes.ActivationCode;
 import kodlamaio.hmrs.entities.concretes.Employer;
+import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
+import kodlamaio.hmrs.entities.concretes.ResumeExperience;
+import kodlamaio.hmrs.entities.dtos.EmployerAddDto;
+import kodlamaio.hmrs.entities.dtos.EmployerGetDto;
 
 @Service
 public class EmployerManager implements EmployerService {
 
-	private FieldService<Employer> employerFieldService;
+
 	private ActivationCodeDao activationCodeDao;
 	private EmployerDao employerDao;
+	private UserDao userDao;
+	private DtoConverterService dtoConverterService;
 	@Autowired
-	public EmployerManager(FieldService<Employer> employerFieldService,ActivationCodeDao activationCodeDao,EmployerDao employerDao) {
+	public EmployerManager(ActivationCodeDao activationCodeDao,EmployerDao employerDao,UserDao userDao,DtoConverterService dtoConverterService) {
 		super();
-		this.employerFieldService = employerFieldService;
+		
 		this.activationCodeDao =activationCodeDao;
 		this.employerDao = employerDao;
+		this.userDao = userDao;
+		this.activationCodeDao = activationCodeDao;
+		this.dtoConverterService = dtoConverterService;
 	}
 
 
 	@Override
-	public DataResult<List<Employer>> getAll() {
-		return this.employerFieldService.getAll();
+	public DataResult<List<EmployerGetDto>> getAll() {
+		return new SuccessDataResult<List<EmployerGetDto>>
+		(this.dtoConverterService.dtoConverter(this.employerDao.findAll(), EmployerGetDto.class),"İşlem Başarılı");
 	}
 
 	@Override
-	public Result add(Employer employer) {
-		return this.employerFieldService.add(employer);
+	public Result add(EmployerAddDto employerAddDto) {
+		//MAİL SPLİTİ OLUŞTURMA
+				String[] splittedMail = employerAddDto.getEmail().split("@");
+				// EMAİL KULLANILMIŞ MI
+				if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
+					return new ErrorResult("Bu email çoktan kullanılmış !");
+				}
+				//DOĞRU DOMAİNLİ EMAİL Mİ
+				if (!splittedMail[1].equals(employerAddDto.getWebAdress())) {
+					return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
+				}
+				//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
+				if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
+					return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
+				}		
+				this.employerDao.save((Employer) this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class));
+				return new SuccessResult("Tebrikler işlem başarılı.");
+			
 	}
 
 
@@ -56,6 +83,31 @@ public class EmployerManager implements EmployerService {
 		Employer employer = this.employerDao.findById(activationUserCode.getUser().getId()).get();
 		employer.setActivated(true);
 		this.employerDao.save(employer);
+		return new SuccessResult("İşlem Başarılı");
+	}
+
+
+	@Override
+	public Result update(EmployerAddDto employerAddDto) {
+		//MAİL SPLİTİ OLUŞTURMA
+		String[] splittedMail = employerAddDto.getEmail().split("@");
+		// EMAİL KULLANILMIŞ MI
+		if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
+			return new ErrorResult("Bu email çoktan kullanılmış !");
+		}
+		//DOĞRU DOMAİNLİ EMAİL Mİ
+		if (!splittedMail[1].equals(employerAddDto.getWebAdress())) {
+			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
+		}
+		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
+		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
+			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
+		}		
+//		this.employerDao.save(employerAddDto);
+//		return new SuccessResult("Tebrikler ! kayıt işleminiz başarılı.");
+	
+		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
+		 this.employerDao.save(employer);
 		return new SuccessResult("İşlem Başarılı");
 	}
 

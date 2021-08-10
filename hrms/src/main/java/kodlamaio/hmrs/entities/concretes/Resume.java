@@ -38,7 +38,7 @@ public class Resume {
 	
 	
 	@Column(name="profile_picture_url")
-	private String profilePictureUrl;
+	private String profilePictureUrl="https://res.cloudinary.com/drtniio0r/image/upload/v1624707367/noperson_e8gskq.png";
 	
 	
 //	@Column(name="created_at",updatable=false)

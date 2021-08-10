@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,8 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hmrs.entities.concretes.Employer;
+import kodlamaio.hmrs.entities.dtos.EmployerAddDto;
+import kodlamaio.hmrs.entities.dtos.EmployerGetDto;
 import kodlamaio.hmrs.entities.dtos.EmployersSelectDto;
 
 @RestController
@@ -39,13 +42,13 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Employer>> getAll(){
+	public DataResult<List<EmployerGetDto>> getAll(){
 		return this.empoyerService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@Valid @RequestBody Employer employer) {
-		return this.empoyerService.add(employer);
+	public Result add(@Valid @RequestBody EmployerAddDto employerAddDto) {
+		return this.empoyerService.add(employerAddDto);
 	}
 	@PostMapping("/confirm")
 	public Result confirm(@RequestParam String activationCode) {
@@ -62,6 +65,10 @@ public class EmployersController {
 		return new SuccessDataResult<List<EmployersSelectDto>>
 		(employersSelectDto);
 	};
+	@PutMapping("/update")
+	public Result update(@Valid @RequestBody EmployerAddDto employerAddDto) {
+		return this.empoyerService.update(employerAddDto);
+	}
 	
 
 }
