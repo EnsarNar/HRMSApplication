@@ -30,29 +30,29 @@ import kodlamaio.hmrs.entities.dtos.EmployersSelectDto;
 @CrossOrigin
 public class EmployersController {
 
-	private EmployerService empoyerService;
-	
+	private EmployerService employerService;
 	private EmployerDao employerDao;
 
 	@Autowired
-	public EmployersController(EmployerService empoyerService, EmployerDao employerDao) {
+	public EmployersController(EmployerService employerService,EmployerDao employerDao) {
 		super();
-		this.empoyerService = empoyerService;
+		this.employerService = employerService;
 		this.employerDao = employerDao;
+	
 	}
 	
 	@GetMapping("/getall")
 	public DataResult<List<EmployerGetDto>> getAll(){
-		return this.empoyerService.getAll();
+		return this.employerService.getAll();
 	}
 	
 	@PostMapping("/add")
 	public Result add(@Valid @RequestBody EmployerAddDto employerAddDto) {
-		return this.empoyerService.add(employerAddDto);
+		return this.employerService.add(employerAddDto);
 	}
 	@PostMapping("/confirm")
 	public Result confirm(@RequestParam String activationCode) {
-		return this.empoyerService.confirm(activationCode);
+		return this.employerService.confirm(activationCode);
 	}
 	
 	@GetMapping("/selectEmployers")
@@ -67,7 +67,11 @@ public class EmployersController {
 	};
 	@PutMapping("/update")
 	public Result update(@Valid @RequestBody EmployerAddDto employerAddDto) {
-		return this.empoyerService.update(employerAddDto);
+		return this.employerService.update(employerAddDto);
+	}
+	@GetMapping("/getById")
+	public DataResult<List<EmployerGetDto>> getAllById(int id){
+		return this.employerService.getAllById(id);
 	}
 	
 

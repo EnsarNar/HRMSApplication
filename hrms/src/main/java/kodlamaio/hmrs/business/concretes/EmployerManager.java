@@ -112,6 +112,13 @@ public class EmployerManager implements EmployerService {
 	}
 
 
+	@Override
+	public DataResult<List<EmployerGetDto>> getAllById(int id) {
+		return new SuccessDataResult<List<EmployerGetDto>>
+		(this.dtoConverterService.dtoConverter(this.employerDao.getAllById(id), EmployerGetDto.class),"İşlem Başarılı");
+	}
+
+
 
 	
 	
