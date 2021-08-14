@@ -73,6 +73,10 @@ public class EmployersController {
 	public DataResult<List<EmployerGetDto>> getAllById(int id){
 		return this.employerService.getAllById(id);
 	}
+	@PutMapping("/updateEmail")
+	public Result updateEmail(@RequestParam String email,@RequestParam int id) {
+		return this.employerService.updateEmail(email, id);
+	}
 	
 
 }

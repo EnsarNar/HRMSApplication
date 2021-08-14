@@ -8,4 +8,5 @@ import kodlamaio.hmrs.entities.concretes.Employer;
 
 public interface EmployerDao extends JpaRepository<Employer,Integer> {
 	List<Employer> getAllById(int id);
+	Employer getById(int id);
 }
