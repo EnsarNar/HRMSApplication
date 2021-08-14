@@ -87,28 +87,28 @@ public class EmployerManager implements EmployerService {
 	}
 
 
-	@Override
-	public Result update(EmployerAddDto employerAddDto) {
-		//MAİL SPLİTİ OLUŞTURMA
-		String[] splittedMail = employerAddDto.getEmail().split("@");
-		// EMAİL KULLANILMIŞ MI
-		if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
-			return new ErrorResult("Bu email çoktan kullanılmış !");
-		}
-		//DOĞRU DOMAİNLİ EMAİL Mİ
-		if (!employerAddDto.getWebAdress().contains(splittedMail[1])) {
-			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
-		}
-		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
-		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
-			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
-		}		
-	
-	
-		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
-		 this.employerDao.save(employer);
-		return new SuccessResult("İşlem Başarılı");
-	}
+//	@Override
+//	public Result update(EmployerAddDto employerAddDto) {
+//		//MAİL SPLİTİ OLUŞTURMA
+//		String[] splittedMail = employerAddDto.getEmail().split("@");
+//		// EMAİL KULLANILMIŞ MI
+//		if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
+//			return new ErrorResult("Bu email çoktan kullanılmış !");
+//		}
+//		//DOĞRU DOMAİNLİ EMAİL Mİ
+//		if (!employerAddDto.getWebAdress().contains(splittedMail[1])) {
+//			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
+//		}
+//		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
+//		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
+//			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
+//		}		
+//	
+//	
+//		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
+//		 this.employerDao.save(employer);
+//		return new SuccessResult("İşlem Başarılı");
+//	}
 
 
 	@Override

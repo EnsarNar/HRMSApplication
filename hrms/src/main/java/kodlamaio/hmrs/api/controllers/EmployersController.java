@@ -65,10 +65,10 @@ public class EmployersController {
 		return new SuccessDataResult<List<EmployersSelectDto>>
 		(employersSelectDto);
 	};
-	@PutMapping("/update")
-	public Result update(@Valid @RequestBody EmployerAddDto employerAddDto) {
-		return this.employerService.update(employerAddDto);
-	}
+//	@PutMapping("/update")
+//	public Result update(@Valid @RequestBody EmployerAddDto employerAddDto) {
+//		return this.employerService.update(employerAddDto);
+//	}
 	@GetMapping("/getById")
 	public DataResult<List<EmployerGetDto>> getAllById(int id){
 		return this.employerService.getAllById(id);

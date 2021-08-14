@@ -13,7 +13,7 @@ public interface EmployerService {
 	DataResult<List<EmployerGetDto>> getAll();
 	DataResult<List<EmployerGetDto>> getAllById(int id);
 	Result add(EmployerAddDto employerAddDto);
-	Result update(EmployerAddDto EmployerAddDto);
+//	Result update(EmployerAddDto EmployerAddDto);
 	Result updateEmail(String email,int id);
 	Result confirm(String activationCode);
 
