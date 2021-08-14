@@ -102,8 +102,7 @@ public class EmployerManager implements EmployerService {
 //		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
 //		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
 //			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
-//		}		
-//	
+//		}			
 //	
 //		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
 //		 this.employerDao.save(employer);
