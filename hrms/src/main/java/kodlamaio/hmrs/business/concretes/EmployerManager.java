@@ -26,7 +26,6 @@ import kodlamaio.hmrs.entities.dtos.EmployerGetDto;
 @Service
 public class EmployerManager implements EmployerService {
 
-
 	private ActivationCodeDao activationCodeDao;
 	private EmployerDao employerDao;
 	private UserDao userDao;
@@ -87,29 +86,6 @@ public class EmployerManager implements EmployerService {
 	}
 
 
-//	@Override
-//	public Result update(EmployerAddDto employerAddDto) {
-//		//MAİL SPLİTİ OLUŞTURMA
-//		String[] splittedMail = employerAddDto.getEmail().split("@");
-//		// EMAİL KULLANILMIŞ MI
-//		if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
-//			return new ErrorResult("Bu email çoktan kullanılmış !");
-//		}
-//		//DOĞRU DOMAİNLİ EMAİL Mİ
-//		if (!employerAddDto.getWebAdress().contains(splittedMail[1])) {
-//			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
-//		}
-//		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
-//		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
-//			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
-//		}			
-//	
-//		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
-//		 this.employerDao.save(employer);
-//		return new SuccessResult("İşlem Başarılı");
-//	}
-
-
 	@Override
 	public DataResult<List<EmployerGetDto>> getAllById(int id) {
 		return new SuccessDataResult<List<EmployerGetDto>>
@@ -124,12 +100,51 @@ public class EmployerManager implements EmployerService {
 		if(this.userDao.existsByEmail(email)) {
 			return new ErrorResult("Bu email çoktan kullanılmış !");
 		}
+		
 		employer.setEmail(email);
 		this.employerDao.save(employer);
 		return new SuccessResult("İşlem Başarılı");
 	}
 
 
+	@Override
+	public Result updatePassword(String password, String passwordRepeat, int id) {
+		Employer employer = this.employerDao.getById(id);
+		if(!password.equals(passwordRepeat)) { 
+			return new ErrorResult("Lütfen Şifre ile Şifre tekrarı aynı olsun");
+		}else {
+			
+			employer.setPassword(password);
+			employer.setPassword_repeat(passwordRepeat);
+			this.employerDao.save(employer);
+			return new SuccessResult("İşlem Başarılı");
+		}
+		
+	
+	}
+
+
+	@Override
+	public Result updatePhone(String phone, int id) {
+		Employer employer = this.employerDao.getById(id);
+		employer.setPhoneNumber(phone);
+		this.employerDao.save(employer);
+		return new SuccessResult("İşlem Başarılı");
+	}
+
+
+	@Override
+	public Result updateWebAdress(String webAdress, int id) {
+		Employer employer = this.employerDao.getById(id);
+		employer.setWebAdress(webAdress);
+		this.employerDao.save(employer);
+		return new SuccessResult("İşlem Başarılı");
+	}
+
+	
+};
+
+
 	
 
 	
@@ -140,4 +155,4 @@ public class EmployerManager implements EmployerService {
 	
 
 
-}
+

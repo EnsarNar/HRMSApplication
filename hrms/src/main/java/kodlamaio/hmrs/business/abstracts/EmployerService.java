@@ -15,6 +15,9 @@ public interface EmployerService {
 	Result add(EmployerAddDto employerAddDto);
 //	Result update(EmployerAddDto EmployerAddDto);
 	Result updateEmail(String email,int id);
+	Result updatePhone(String phone,int id);
+	Result updateWebAdress(String webAdress,int id);
+	Result updatePassword(String password,String passwordRepeat,int id);
 	Result confirm(String activationCode);
 
 }
