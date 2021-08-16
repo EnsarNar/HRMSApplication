@@ -107,7 +107,7 @@ public class EmployerManager implements EmployerService {
 //		Employer employer =  (Employer)this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class);
 //		 this.employerDao.save(employer);
 //		return new SuccessResult("İşlem Başarılı");
-//	}
+//	
 
 
 	@Override
