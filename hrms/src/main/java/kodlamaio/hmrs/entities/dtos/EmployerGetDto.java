@@ -2,6 +2,7 @@ package kodlamaio.hmrs.entities.dtos;
 
 import java.util.List;
 
+import kodlamaio.hmrs.entities.concretes.Employer;
 import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,10 @@ public class EmployerGetDto {
 	private String phoneNumber;
 	private String webAdress;
 	private List<JobAdvertisement> jobAdvertisements;
+
+	
+
+
+			
+	//private JSONObject updatedData;
 }

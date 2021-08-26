@@ -1,8 +1,6 @@
 package kodlamaio.hmrs.entities.dtos;
 
-import java.util.List;
-
-import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
+import kodlamaio.hmrs.entities.concretes.Employer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,5 @@ public class EmployerAddDto {
 	private String companyName;
 	private String phoneNumber;
 	private String webAdress;
+	private Employer updatedData;
 }

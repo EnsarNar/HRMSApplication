@@ -18,8 +18,6 @@ import kodlamaio.hmrs.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hmrs.dataAccess.abstracts.UserDao;
 import kodlamaio.hmrs.entities.concretes.ActivationCode;
 import kodlamaio.hmrs.entities.concretes.Employer;
-import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
-import kodlamaio.hmrs.entities.concretes.ResumeExperience;
 import kodlamaio.hmrs.entities.dtos.EmployerAddDto;
 import kodlamaio.hmrs.entities.dtos.EmployerGetDto;
 
@@ -43,9 +41,9 @@ public class EmployerManager implements EmployerService {
 
 
 	@Override
-	public DataResult<List<EmployerGetDto>> getAll() {
-		return new SuccessDataResult<List<EmployerGetDto>>
-		(this.dtoConverterService.dtoConverter(this.employerDao.findAll(), EmployerGetDto.class),"İşlem Başarılı");
+	public DataResult<List<Employer>> getAll() {
+		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"Process's done");
+		//(this.dtoConverterService.dtoConverter(this.employerDao.findAll(), EmployerGetDto.class),"İşlem Başarılı");
 	}
 
 	@Override
@@ -95,14 +93,16 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public Result updateEmail(String email, int id) {
-		Employer employer = this.employerDao.getById(id);
+		Employer updatedEmployer = this.employerDao.getById(id);
 		// EMAİL KULLANILMIŞ MI
 		if(this.userDao.existsByEmail(email)) {
 			return new ErrorResult("Bu email çoktan kullanılmış !");
 		}
-		
-		employer.setEmail(email);
-		this.employerDao.save(employer);
+	
+//		updatedEmployer.setEmail(email);
+//		Employer mainEmployer= this.employerDao.getById(id);	
+//		mainEmployer.setUpdatedData(updatedEmployer);
+		this.employerDao.save(updatedEmployer);
 		return new SuccessResult("İşlem Başarılı");
 	}
 

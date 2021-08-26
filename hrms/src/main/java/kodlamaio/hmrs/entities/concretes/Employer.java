@@ -14,7 +14,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDefs;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.vladmihalcea.hibernate.type.json.JsonType;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,9 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 @EqualsAndHashCode(callSuper = false)
-@TypeDefs({
-    @TypeDef(name = "json", typeClass = JsonType.class)
-})
+
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
 public class Employer extends User{
 	
@@ -51,9 +49,7 @@ public class Employer extends User{
 	
 	@OneToMany(mappedBy="employer")
 	private List<JobAdvertisement> jobAdvertisements;
+
 	
-	@Type(type = "json")
-	@Column(columnDefinition = "json",name = "updated_data")
-	private Employer updatedData;
 	
 }

@@ -42,7 +42,7 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<EmployerGetDto>> getAll(){
+	public DataResult<List<Employer>> getAll(){
 		return this.employerService.getAll();
 	}
 	
