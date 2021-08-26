@@ -9,10 +9,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDefs;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
