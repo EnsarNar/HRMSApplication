@@ -32,8 +32,10 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 
 	@Override
 	public Result updateEmail(String email, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
+		schema.setEmail(email);
+		this.employerUpdateSchemaDao.save(schema);
+		return new SuccessResult("İşlem Başarılı");
 	}
 
 	@Override

@@ -5,12 +5,12 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,6 +45,9 @@ public class Employer extends User{
 	
 	@OneToMany(mappedBy="employer")
 	private List<JobAdvertisement> jobAdvertisements;
+	
+	@OneToOne(mappedBy="employer")
+	private EmployerUpdateSchema schema;
 
 	
 	
