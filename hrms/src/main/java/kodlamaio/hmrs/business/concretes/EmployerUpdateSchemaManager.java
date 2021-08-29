@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.business.abstracts.EmployerUpdateSchemaService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
+import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
@@ -40,20 +41,31 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 
 	@Override
 	public Result updatePhone(String phone, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
+		schema.setPhoneNumber(phone);
+		this.employerUpdateSchemaDao.save(schema);
+		return new SuccessResult("İşlem Başarılı");
 	}
 
 	@Override
 	public Result updateWebAdress(String webAdress, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
+		schema.setWebAdress(webAdress);
+		this.employerUpdateSchemaDao.save(schema);
+		return new SuccessResult("İşlem Başarılı");
 	}
 
 	@Override
 	public Result updatePassword(String password, String passwordRepeat, int id) {
-		// TODO Auto-generated method stub
-		return null;
+		if(password.equals(passwordRepeat)) {
+			EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
+		schema.setPassword(password);
+		schema.setPasswordRepeat(passwordRepeat);
+		this.employerUpdateSchemaDao.save(schema);
+		return new SuccessResult("İşlem Başarılı");
+		}
+		return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
+		
 	}
 
 	@Override
