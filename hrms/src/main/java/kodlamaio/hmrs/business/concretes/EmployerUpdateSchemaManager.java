@@ -15,6 +15,7 @@ import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.EmployerUpdateSchemaDao;
 import kodlamaio.hmrs.entities.concretes.EmployerUpdateSchema;
 import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaAddDto;
+import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaGetDto;
 
 @Service
 public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
@@ -34,9 +35,9 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 	//telefonunu değiştirmek için istek atar sonrasında email için de istek atarsa EmployerUpdateSchema
 	//Güncellenir ve sadece email kısmı kalır telefon kısmı gider. Ondan dolayı metodlar tek tek girildi.
 	@Override
-	public DataResult<List<EmployerUpdateSchema>> getAll() {
-		return new SuccessDataResult<List<EmployerUpdateSchema>>
-		(this.employerUpdateSchemaDao.findAll(),"İşlem Başarılı");
+	public DataResult<List<EmployerUpdateSchemaGetDto>> getAll() {
+		return new SuccessDataResult<List<EmployerUpdateSchemaGetDto>>
+		(this.dtoConverterService.dtoConverter(this.employerUpdateSchemaDao.findAll(), EmployerUpdateSchemaGetDto.class),"İşlem Başarılı");
 	}
 
 	@Override
