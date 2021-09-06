@@ -25,6 +25,10 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 		this.employerUpdateSchemaDao = employerUpdateSchemaDao;
 	}
 
+	//Eğer tek bir updateEmployerUpdateSchema üzerinden güncellemeleri almaya çalışırsak
+	//kişi aynı ande hem telefonunu hem emailini değiştiremez mesela.
+	//telefonunu değiştirmek için istek atar sonrasında email için de istek atarsa EmployerUpdateSchema
+	//Güncellenir ve sadece email kısmı kalır telefon kısmı gider. Ondan dolayı metodlar tek tek girildi.
 	@Override
 	public DataResult<List<EmployerUpdateSchema>> getAll() {
 		return new SuccessDataResult<List<EmployerUpdateSchema>>
