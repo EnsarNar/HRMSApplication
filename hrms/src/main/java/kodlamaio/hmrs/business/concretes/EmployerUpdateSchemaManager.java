@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hmrs.business.abstracts.EmployerUpdateSchemaService;
+import kodlamaio.hmrs.core.dtoConverter.DtoConverterService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.ErrorResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
@@ -13,16 +14,19 @@ import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.EmployerUpdateSchemaDao;
 import kodlamaio.hmrs.entities.concretes.EmployerUpdateSchema;
+import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaAddDto;
 
 @Service
 public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 
 	@Autowired
 	private EmployerUpdateSchemaDao employerUpdateSchemaDao;
+	private DtoConverterService dtoConverterService;
 	
-	public EmployerUpdateSchemaManager(EmployerUpdateSchemaDao employerUpdateSchemaDao) {
+	public EmployerUpdateSchemaManager(EmployerUpdateSchemaDao employerUpdateSchemaDao,DtoConverterService dtoConverterService) {
 		super();
 		this.employerUpdateSchemaDao = employerUpdateSchemaDao;
+		this.dtoConverterService = dtoConverterService;
 	}
 
 	//Eğer tek bir updateEmployerUpdateSchema üzerinden güncellemeleri almaya çalışırsak
@@ -73,8 +77,8 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 	}
 
 	@Override
-	public Result add(EmployerUpdateSchema employerUpdateSchema) {
-		this.employerUpdateSchemaDao.save(employerUpdateSchema);
+	public Result add(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
+		this.employerUpdateSchemaDao.save((EmployerUpdateSchema) this.dtoConverterService.dtoClassConverter(employerUpdateSchemaAddDto, EmployerUpdateSchema.class));
 		return new SuccessResult("İşlem Başarılı");
 	}
 
