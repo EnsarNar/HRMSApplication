@@ -47,7 +47,7 @@ public class EmployerManager implements EmployerService {
 	}
 
 	@Override
-	public Result add(EmployerAddDto employerAddDto) {
+	public Result update(EmployerAddDto employerAddDto) {
 		//MAİL SPLİTİ OLUŞTURMA
 				String[] splittedMail = employerAddDto.getEmail().split("@");
 				// EMAİL KULLANILMIŞ MI
@@ -90,56 +90,6 @@ public class EmployerManager implements EmployerService {
 		(this.dtoConverterService.dtoConverter(this.employerDao.getAllById(id), EmployerGetDto.class),"İşlem Başarılı");
 	}
 
-
-	@Override
-	public Result updateEmail(String email, int id) {
-		Employer updatedEmployer = this.employerDao.getById(id);
-		// EMAİL KULLANILMIŞ MI
-		if(this.userDao.existsByEmail(email)) {
-			return new ErrorResult("Bu email çoktan kullanılmış !");
-		}
-	
-//		updatedEmployer.setEmail(email);
-//		Employer mainEmployer= this.employerDao.getById(id);	
-//		mainEmployer.setUpdatedData(updatedEmployer);
-		this.employerDao.save(updatedEmployer);
-		return new SuccessResult("İşlem Başarılı");
-	}
-
-
-	@Override
-	public Result updatePassword(String password, String passwordRepeat, int id) {
-		Employer employer = this.employerDao.getById(id);
-		if(!password.equals(passwordRepeat)) { 
-			return new ErrorResult("Lütfen Şifre ile Şifre tekrarı aynı olsun");
-		}else {
-			
-			employer.setPassword(password);
-			employer.setPassword_repeat(passwordRepeat);
-			this.employerDao.save(employer);
-			return new SuccessResult("İşlem Başarılı");
-		}
-		
-	
-	}
-
-
-	@Override
-	public Result updatePhone(String phone, int id) {
-		Employer employer = this.employerDao.getById(id);
-		employer.setPhoneNumber(phone);
-		this.employerDao.save(employer);
-		return new SuccessResult("İşlem Başarılı");
-	}
-
-
-	@Override
-	public Result updateWebAdress(String webAdress, int id) {
-		Employer employer = this.employerDao.getById(id);
-		employer.setWebAdress(webAdress);
-		this.employerDao.save(employer);
-		return new SuccessResult("İşlem Başarılı");
-	}
 
 	
 };

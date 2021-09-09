@@ -67,7 +67,7 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 	@Override
 	public Result updatePassword(String password, String passwordRepeat, int id) {
 		if(password.equals(passwordRepeat)) {
-			EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
+		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
 		schema.setPassword(password);
 		schema.setPasswordRepeat(passwordRepeat);
 		this.employerUpdateSchemaDao.save(schema);
