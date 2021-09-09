@@ -50,4 +50,7 @@ public class EmployerUpdateSchema {
 	@JoinColumn(name="employer_id")
 	private Employer employer;
 	
+	@Column(name="on_update_process")
+	private boolean onUpdateProcess;
+	
 }

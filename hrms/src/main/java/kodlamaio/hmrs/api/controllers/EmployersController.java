@@ -70,21 +70,6 @@ public class EmployersController {
 	public DataResult<List<EmployerGetDto>> getAllById(int id){
 		return this.employerService.getAllById(id);
 	}
-	@PutMapping("/updateEmail")
-	public Result updateEmail(@RequestParam String email,@RequestParam int id) {
-		return this.employerService.updateEmail(email, id);
-	}
-	@PutMapping("/updatePassword")
-	public Result updatePassword(String password, String passwordRepeat, int id) {
-		return this.employerService.updatePassword(password, passwordRepeat, id);
-	};
-	@PutMapping("/updatePhone")
-	public Result updatePassword(String phone, int id) {
-		return this.employerService.updatePhone(phone,id);
-	};
-	@PutMapping("/updateWebAdress")
-	public Result updateWebAdress(String webAdress,int id) {
-		return this.employerService.updateWebAdress(webAdress, id);
-	};
+
 
 }

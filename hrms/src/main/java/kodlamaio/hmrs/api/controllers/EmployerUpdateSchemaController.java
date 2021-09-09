@@ -30,30 +30,14 @@ public class EmployerUpdateSchemaController {
 	}	
 	
 	
-	
 	@GetMapping("/getAll")
 	public DataResult<List<EmployerUpdateSchemaGetDto>> getAll(){
 		return this.employerUpdateSchemaService.getAll();
 	};
-	@PostMapping("/updateEmail")
-	public Result updateEmail(@RequestParam String email,@RequestParam int id) {
-		return this.employerUpdateSchemaService.updateEmail(email, id);
-	};
-	@PostMapping("/updatePhone")
-	public Result updatePhone(@RequestParam String phone,@RequestParam int id) {
-		return this.employerUpdateSchemaService.updateEmail(phone, id);
-	};
-	@PostMapping("/updateWebAdress")
-	public Result updateWebAdress(@RequestParam String webAdress,@RequestParam int id) {
-		return this.employerUpdateSchemaService.updateEmail(webAdress, id);
-	};
-	@PostMapping("/updatePassword")
-	public Result updateWebAdress(@RequestParam String password,@RequestParam String passwordRepeat,@RequestParam int id) {
-		return this.employerUpdateSchemaService.updatePassword(password, passwordRepeat,id);
-	};	
+
 	@PostMapping("/add")
 	public Result add(@RequestBody EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
-		return this.employerUpdateSchemaService.add(employerUpdateSchemaAddDto);
+		return this.employerUpdateSchemaService.update(employerUpdateSchemaAddDto);
 	};
 	
 	

@@ -40,45 +40,9 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 		(this.dtoConverterService.dtoConverter(this.employerUpdateSchemaDao.findAll(), EmployerUpdateSchemaGetDto.class),"İşlem Başarılı");
 	}
 
-	@Override
-	public Result updateEmail(String email, int id) {
-		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
-		schema.setEmail(email);
-		this.employerUpdateSchemaDao.save(schema);
-		return new SuccessResult("İşlem Başarılı");
-	}
 
 	@Override
-	public Result updatePhone(String phone, int id) {
-		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
-		schema.setPhoneNumber(phone);
-		this.employerUpdateSchemaDao.save(schema);
-		return new SuccessResult("İşlem Başarılı");
-	}
-
-	@Override
-	public Result updateWebAdress(String webAdress, int id) {
-		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
-		schema.setWebAdress(webAdress);
-		this.employerUpdateSchemaDao.save(schema);
-		return new SuccessResult("İşlem Başarılı");
-	}
-
-	@Override
-	public Result updatePassword(String password, String passwordRepeat, int id) {
-		if(password.equals(passwordRepeat)) {
-		EmployerUpdateSchema schema = this.employerUpdateSchemaDao.getById(id);
-		schema.setPassword(password);
-		schema.setPasswordRepeat(passwordRepeat);
-		this.employerUpdateSchemaDao.save(schema);
-		return new SuccessResult("İşlem Başarılı");
-		}
-		return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
-		
-	}
-
-	@Override
-	public Result add(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
+	public Result update(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
 		this.employerUpdateSchemaDao.save((EmployerUpdateSchema) this.dtoConverterService.dtoClassConverter(employerUpdateSchemaAddDto, EmployerUpdateSchema.class));
 		return new SuccessResult("İşlem Başarılı");
 	}

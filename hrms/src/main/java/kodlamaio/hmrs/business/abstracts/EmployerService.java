@@ -12,7 +12,7 @@ import kodlamaio.hmrs.entities.dtos.EmployerGetDto;
 public interface EmployerService {
 	DataResult<List<Employer>> getAll();
 	DataResult<List<EmployerGetDto>> getAllById(int id);
-	Result update(EmployerAddDto employerAddDto);
+	Result add(EmployerAddDto employerAddDto);
 //	Result update(EmployerAddDto EmployerAddDto);
 	Result confirm(String activationCode);
 

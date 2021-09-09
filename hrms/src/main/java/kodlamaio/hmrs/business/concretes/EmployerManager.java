@@ -47,7 +47,7 @@ public class EmployerManager implements EmployerService {
 	}
 
 	@Override
-	public Result update(EmployerAddDto employerAddDto) {
+	public Result add(EmployerAddDto employerAddDto) {
 		//MAİL SPLİTİ OLUŞTURMA
 				String[] splittedMail = employerAddDto.getEmail().split("@");
 				// EMAİL KULLANILMIŞ MI
@@ -62,6 +62,7 @@ public class EmployerManager implements EmployerService {
 				if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
 					return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
 				}		
+				
 				this.employerDao.save((Employer) this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class));
 				return new SuccessResult("Tebrikler işlem başarılı.");
 			
