@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +40,7 @@ public class EmployersActivationByEmployees {
 	@Column(name="employee_id")
 	private int employeeId;
 	
+	@NotBlank(message="Bu kısım boş geçilemez!")
 	@Column(name="confirm_date")
 	private LocalDate confirmDate;
 	

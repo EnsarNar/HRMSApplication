@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeAddDto {	
-	private int id; //Resum'un idsi. Buranın deil
+	private int id; //Resum'un idsi. Buranın özel idsi deil
 	//private String profilePictureUrl;
 	private int candidateId;
 

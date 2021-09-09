@@ -1,5 +1,6 @@
 package kodlamaio.hmrs.entities.dtos;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
@@ -18,5 +19,6 @@ public class EmployerUpdateSchemaAddDto {
 	private String password;
 	private String passwordRepeat;
 	private String email;
+	private boolean onUpdateProcess;
 	private int employerId;
 }

@@ -1,8 +1,9 @@
 package kodlamaio.hmrs.entities.dtos;
 
-import java.util.List;
 
-import kodlamaio.hmrs.entities.concretes.JobAdvertisement;
+import java.time.LocalDateTime;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,7 @@ public class EmployerUpdateSchemaGetDto {
 	private String password;
 	private String passwordRepeat;
 	private String email;
+	private LocalDateTime createdAt;
+	private boolean onUpdateProcess;
 	private int employerId;
 }

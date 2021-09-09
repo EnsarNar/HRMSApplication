@@ -13,6 +13,7 @@ import kodlamaio.hmrs.core.utilities.results.Result;
 import kodlamaio.hmrs.core.utilities.results.SuccessDataResult;
 import kodlamaio.hmrs.core.utilities.results.SuccessResult;
 import kodlamaio.hmrs.dataAccess.abstracts.EmployerUpdateSchemaDao;
+import kodlamaio.hmrs.entities.concretes.Employer;
 import kodlamaio.hmrs.entities.concretes.EmployerUpdateSchema;
 import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaAddDto;
 import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaGetDto;
@@ -43,6 +44,23 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 
 	@Override
 	public Result update(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
+//		String[] splittedMail = employerAddDto.getEmail().split("@");
+//		// EMAİL KULLANILMIŞ MI
+//		if(this.userDao.existsByEmail(employerAddDto.getEmail())) {
+//			return new ErrorResult("Bu email çoktan kullanılmış !");
+//		}
+//		//DOĞRU DOMAİNLİ EMAİL Mİ
+//		if (!employerAddDto.getWebAdress().contains(splittedMail[1])) {
+//			return new ErrorResult("Yalnızca Şirket Web Sitenizin Uzantısına Sahip Bir Mail Adresiyle Kayıt Olabilirsiniz");
+//		}
+//		//ŞİFRE TEKRARI İLE ŞİFRE AYNI MI
+//		if(!employerAddDto.getPassword().equals(employerAddDto.getPassword_repeat())) {
+//			return new ErrorResult("Şifre tekrarı ile şifre uyuşmuyor !");
+//		}		
+//		
+//		this.employerDao.save((Employer) this.dtoConverterService.dtoClassConverter(employerAddDto, Employer.class));
+		//return new SuccessResult("Tebrikler işlem başarılı.");
+		employerUpdateSchemaAddDto.setOnUpdateProcess(true);
 		this.employerUpdateSchemaDao.save((EmployerUpdateSchema) this.dtoConverterService.dtoClassConverter(employerUpdateSchemaAddDto, EmployerUpdateSchema.class));
 		return new SuccessResult("İşlem Başarılı");
 	}

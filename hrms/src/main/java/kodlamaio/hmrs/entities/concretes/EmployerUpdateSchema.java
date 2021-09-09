@@ -1,5 +1,8 @@
 package kodlamaio.hmrs.entities.concretes;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -51,6 +54,9 @@ public class EmployerUpdateSchema {
 	private Employer employer;
 	
 	@Column(name="on_update_process")
-	private boolean onUpdateProcess;
+	private boolean onUpdateProcess=false;
+	
+	@Column(name="created_at")
+	private LocalDateTime createdAt=LocalDateTime.now();
 	
 }
