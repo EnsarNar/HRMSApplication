@@ -11,6 +11,7 @@ public interface EmployerUpdateSchemaService {
 	
 	DataResult<List<EmployerUpdateSchemaGetDto>> getAll();
 	Result update(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto);
+	Result remove(int id);
 
 
 }

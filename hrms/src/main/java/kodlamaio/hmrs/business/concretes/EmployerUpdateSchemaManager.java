@@ -65,4 +65,12 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 		return new SuccessResult("İşlem Başarılı");
 	}
 
+	@Override
+	public Result remove(int id) {
+		EmployerUpdateSchema schema= this.employerUpdateSchemaDao.getById(id);
+		schema.setOnUpdateProcess(false);
+		this.employerUpdateSchemaDao.save(schema);
+		return new SuccessResult("Process done");
+	}
+
 }

@@ -1,6 +1,6 @@
 package kodlamaio.hmrs.entities.concretes;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
