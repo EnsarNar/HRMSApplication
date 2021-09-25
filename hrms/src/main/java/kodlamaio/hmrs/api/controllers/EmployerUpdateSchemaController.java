@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hmrs.business.abstracts.EmployerUpdateSchemaService;
 import kodlamaio.hmrs.core.utilities.results.DataResult;
 import kodlamaio.hmrs.core.utilities.results.Result;
+import kodlamaio.hmrs.entities.concretes.EmployerUpdateSchema;
 import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaAddDto;
 import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaGetDto;
 
@@ -34,11 +35,20 @@ public class EmployerUpdateSchemaController {
 	public DataResult<List<EmployerUpdateSchemaGetDto>> getAll(){
 		return this.employerUpdateSchemaService.getAll();
 	};
+	@GetMapping("/findByIdAndEmailIsNotNull")
+	public DataResult<List<EmployerUpdateSchemaGetDto>> findByEmployerIdAndEmailIsNotNull(int id){
+		return this.employerUpdateSchemaService.findByEmployerIdAndEmailIsNotNull(id);
+	};
 
 	@PostMapping("/add")
 	public Result add(@RequestBody EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto) {
 		return this.employerUpdateSchemaService.update(employerUpdateSchemaAddDto);
 	};
+	@PostMapping("/remove")
+	public Result remove(@RequestParam int id) {
+		return this.employerUpdateSchemaService.remove(id);
+	};
+	
 	
 	
 	

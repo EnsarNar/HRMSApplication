@@ -66,11 +66,23 @@ public class EmployerUpdateSchemaManager implements EmployerUpdateSchemaService{
 	}
 
 	@Override
-	public Result remove(int id) {
+	public Result remove( int id) {
 		EmployerUpdateSchema schema= this.employerUpdateSchemaDao.getById(id);
 		schema.setOnUpdateProcess(false);
 		this.employerUpdateSchemaDao.save(schema);
 		return new SuccessResult("Process done");
 	}
+
+	@Override
+	public DataResult<List<EmployerUpdateSchemaGetDto>> findByEmployerIdAndEmailIsNotNull(int id) {
+		return new SuccessDataResult<List<EmployerUpdateSchemaGetDto>>(this.dtoConverterService.dtoConverter(this.employerUpdateSchemaDao.findByEmployerIdAndEmailIsNotNull(id), EmployerUpdateSchemaGetDto.class),"İşlem Başarılı");
+	}
+
+
+//	@Override
+//	public DataResult<List<EmployerUpdateSchemaGetDto>> getAllByEmployerId(int id) {
+//		return new SuccessDataResult<List<EmployerUpdateSchemaGetDto>>
+//		(this.dtoConverterService.dtoConverter(this.employerUpdateSchemaDao.getByEmployerId(id), EmployerUpdateSchemaGetDto.class),"İşlem Başarılı");
+//	}
 
 }

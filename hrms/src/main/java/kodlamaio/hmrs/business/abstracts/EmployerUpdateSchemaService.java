@@ -10,8 +10,11 @@ import kodlamaio.hmrs.entities.dtos.EmployerUpdateSchemaGetDto;
 public interface EmployerUpdateSchemaService {
 	
 	DataResult<List<EmployerUpdateSchemaGetDto>> getAll();
+//	DataResult<List<EmployerUpdateSchemaGetDto>> getAllByEmployerId(int id);
 	Result update(EmployerUpdateSchemaAddDto employerUpdateSchemaAddDto);
 	Result remove(int id);
+	DataResult<List<EmployerUpdateSchemaGetDto>> findByEmployerIdAndEmailIsNotNull(int id);
+	
 
 
 }

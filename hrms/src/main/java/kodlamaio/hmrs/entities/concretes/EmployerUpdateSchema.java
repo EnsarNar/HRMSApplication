@@ -54,7 +54,7 @@ public class EmployerUpdateSchema {
 	private Employer employer;
 	
 	@Column(name="on_update_process")
-	private boolean onUpdateProcess=false;
+	private boolean onUpdateProcess=true;
 	
 	@Column(name="created_at")
 	private LocalDateTime createdAt=LocalDateTime.now();
